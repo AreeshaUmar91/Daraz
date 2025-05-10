@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseller Registration</title>
+    <style>
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.container {
+    max-width: 400px;
+    background: white;
+    padding: 25px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.03);
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #ff6600;
+    box-shadow: 0px 0px 8px rgba(255, 102, 0, 0.5);
+}
+
+button {
+    width: 95%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(to right, #ff6600, #ff3300);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+button:hover {
+    background: linear-gradient(to right, #e65c00, #cc2900);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 500px) {
+    .container {
+        max-width: 90%;
+        padding: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container" id="registrationContainer" style="display: none;">
+        <h2>Reseller Registration</h2>
+        <input type="text" id="resellerName" placeholder="Enter Your Name">
+        <input type="email" id="resellerEmail" placeholder="Enter Your Email">
+        <input type="text" id="storeName" placeholder="Enter Store Name">
+        <button onclick="registerReseller()">Register</button>
+    </div>
+
+    <script>
+        function registerReseller() {
+            let name = document.getElementById('resellerName').value;
+            let email = document.getElementById('resellerEmail').value;
+            let store = document.getElementById('storeName').value;
+
+            if (!name || !email || !store) {
+                alert('Please fill all fields!');
+                return;
+            }
+
+            localStorage.setItem('reseller', JSON.stringify({ name, email, store }));
+            localStorage.setItem('registrationStep', 'suggested'); // Move to suggested.php first
+            localStorage.removeItem('fromLogout'); // Ensure fresh login
+            window.location.href = 'suggested.php'; // Redirect to suggested items page
+        }
+
+        function checkRegistration() {
+    let reseller = localStorage.getItem('reseller');
+    let registrationStep = localStorage.getItem('registrationStep');
+    let fromLogout = localStorage.getItem('fromLogout');
+
+    if (fromLogout === 'true') {
+        localStorage.clear(); // ✅ Reset everything
+        document.getElementById('registrationContainer').style.display = 'block';
+        return;
+    }
+
+    if (reseller) {
+        if (registrationStep === 'suggested') {
+            localStorage.setItem('registrationStep', 'store'); // ✅ Set step to store only once
+            window.location.href = 'store.php';
+        } else if (registrationStep === 'store') {
+            window.location.href = 'store.php'; // ✅ Go to store directly after the first time
+        } else {
+            localStorage.setItem('registrationStep', 'store'); // Ensure it's set correctly
+            window.location.href = 'store.php';
+        }
+    } else {
+        document.getElementById('registrationContainer').style.display = 'block';
+    }
+}
+
+
+        function logout() {
+            localStorage.clear(); // 🚀 Clear all local storage data
+            localStorage.setItem('fromLogout', 'true'); // Ensure logout flag is set
+            window.location.href = 'all.php'; // Redirect to all.php after logout
+        }
+
+        checkRegistration();
+    </script>
+
+
+
+</body>
+</html>
