@@ -492,7 +492,7 @@
     <br>
 
          <div class="row rowdiv" >
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="j1.webp" alt="j1">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/j1.webp" alt="j1">
              <p>  Green stones jewellry set  <br><span class="price" style="color: #fe8e00;">  Rs. 550 PKR</span><br> <span>289 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/j2.webp" alt="j2">
              <p>  Silver neckles set <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>18 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(5)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 

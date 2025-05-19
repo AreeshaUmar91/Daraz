@@ -460,7 +460,7 @@
     </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 " style=" width:20%;">
-        <img style="height:400px;width:100%;" src="sidepic.webp" alt="sidepic">
+        <img style="height:400px;width:100%;" src="images/sidepic.webp" alt="sidepic">
     </div>
     </div>
 
@@ -493,15 +493,15 @@
     <br>
 
          <div class="row rowdiv" >
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag1.webp" alt="b1">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag1.webp" alt="b1">
              <p>  Polka dot tote bag  <br><span class="price" style="color: #fe8e00;">  Rs. 1050 PKR</span><br> <span>98 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(60)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag2.webp" alt="b2">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag2.webp" alt="b2">
              <p>  Mini leather handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>270 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(59)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag3.webp" alt="b3">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag3.webp" alt="b3">
              <p>  Black travel handbag  <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>309 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(103)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag4.webp" alt="b4">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag4.webp" alt="b4">
              <p>  Crossbody sling bag  <br><span class="price" style="color: #fe8e00;">  Rs. 980 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(210)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag5.webp" alt="b5">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag5.webp" alt="b5">
              <p>  Elegant scarf handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1020 PKR</span><br> <span>605 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(402)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
@@ -509,124 +509,124 @@
 
 
          <div class="row rowdiv">
-         <div class="col-lg-2 col-md-5 col-sm-5 coldiv"> <img class="img2" src="bag6.webp" alt="b6">
+         <div class="col-lg-2 col-md-5 col-sm-5 coldiv"> <img class="img2" src="images/bag6.webp" alt="b6">
          <p>  Pink chain shoulder bag <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>420 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(109)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag7.webp" alt="b7">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag7.webp" alt="b7">
              <p>  Yellow drawstring bag <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>180 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag8.webp" alt="b8">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag8.webp" alt="b8">
              <p>  Mini crossbody bag  <br><span class="price" style="color: #fe8e00;">  Rs. 1600 PKR</span><br> <span>276 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(86)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag9.webp" alt="b9">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag9.webp" alt="b9">
              <p>  Black quilted clutch  <br><span class="price" style="color: #fe8e00;">  Rs. 1550 PKR</span><br> <span>386 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(130)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag10.webp" alt="b10">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag10.webp" alt="b10">
              <p>  Blue handbag  <br><span class="price" style="color: #fe8e00;">  Rs. 1680 PKR</span><br> <span>92 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(29)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
 
 
          <div class="row rowdiv">
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag11.webp" alt="b11">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag11.webp" alt="b11">
              <p>  Leather shoulder bag  <br><span class="price" style="color: #fe8e00;">  Rs. 2500 PKR</span><br> <span>509 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(190)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag12.webp" alt="b12">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag12.webp" alt="b12">
              <p>  Grey handbag set  <br><span class="price" style="color: #fe8e00;">  Rs. 3000 PKR</span><br> <span>231 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(120)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag13.webp" alt="b13">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag13.webp" alt="b13">
              <p>  Cute bear backpack  <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>185 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(89)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag14.webp" alt="b14">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag14.webp" alt="b14">
              <p>  Pink pencil case  <br><span class="price" style="color: #fe8e00;">  Rs. 1050 PKR</span><br> <span>240 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(109)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag15.webp" alt="b15">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag15.webp" alt="b15">
              <p>  Mini quilted purses <br><span class="price" style="color: #fe8e00;">  Rs. 1290 PKR</span><br> <span>341 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(128)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
 
          <div class="row rowdiv" >
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag16.webp" alt="b16">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag16.webp" alt="b16">
              <p>  Black crossbody bag <br><span class="price" style="color: #fe8e00;">  Rs. 1560 PKR</span><br> <span>274 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(67)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag17.webp" alt="b17">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag17.webp" alt="b17">
              <p>  Pink fur handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1970 PKR</span><br> <span>102 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag18.webp" alt="b18">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag18.webp" alt="b18">
              <p>  Blue stylish handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1640 PKR</span><br> <span>380 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(275)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag19.webp" alt="b19">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag19.webp" alt="b19">
              <p>  Pink shoulder pouch  <br><span class="price" style="color: #fe8e00;">  Rs. 1550 PKR</span><br> <span>472 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(203)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag20.webp" alt="b20">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag20.webp" alt="b20">
              <p>  Blue travel bag set <br><span class="price" style="color: #fe8e00;">  Rs. 1290 PKR</span><br> <span>179 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
          
          
          <div class="row rowdiv">
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag21.webp" alt="b21">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag21.webp" alt="b21">
              <p>  Black waist bag <br><span class="price" style="color: #fe8e00;">  Rs. 1160 PKR</span><br> <span>270 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(103)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag22.webp" alt="b22">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag22.webp" alt="b22">
              <p>  Black shoulder bag <br><span class="price" style="color: #fe8e00;">  Rs. 1630 PKR</span><br> <span>181 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(98)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag23.webp" alt="b23">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag23.webp" alt="b23">
              <p>  Yellow crossbody bag  <br><span class="price" style="color: #fe8e00;">  Rs. 1210 PKR</span><br> <span>390 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(205)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag24.webp" alt="b24">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag24.webp" alt="b24">
              <p>  Black sling bag  <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>194 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(105)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag25.webp" alt="b25">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag25.webp" alt="b25">
              <p>  Black chest bag  <br><span class="price" style="color: #fe8e00;">  Rs. 1790 PKR</span><br> <span>290 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(110)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
          
          <div class="row rowdiv" >
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag26.webp" alt="b26">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag26.webp" alt="b26">
              <p>  Blue leather handbag <br><span class="price" style="color: #fe8e00;">  Rs. 2500 PKR</span><br> <span>280 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(120)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag27.webp" alt="b27">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag27.webp" alt="b27">
              <p>  Blue crocodile pattern bag  <br><span class="price" style="color: #fe8e00;">  Rs. 2050 PKR</span><br> <span>350 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(270)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag28.webp" alt="b28">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag28.webp" alt="b28">
              <p>  Black small shoulder bag  <br><span class="price" style="color: #fe8e00;">  Rs. 1290 PKR</span><br> <span>147 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(101)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag29.webp" alt="b29">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag29.webp" alt="b29">
              <p>  Colorful mini bags set  <br><span class="price" style="color: #fe8e00;">  Rs. 1050 PKR</span><br> <span>295 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(190)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag30.webp" alt="b30">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag30.webp" alt="b30">
              <p>  Brown stylish handbag  <br><span class="price" style="color: #fe8e00;">  Rs. 1640 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(40)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag31.webp" alt="b31">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag31.webp" alt="b31">
              <p>  Black box bag  <br><span class="price" style="color: #fe8e00;">  Rs. 1650 PKR</span><br> <span>68 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(45)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag32.webp" alt="b32">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag32.webp" alt="b32">
              <p>  Red & black pouch set <br><span class="price" style="color: #fe8e00;">  Rs. 1890 PKR</span><br> <span>135 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(97)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag33.webp" alt="b33">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag33.webp" alt="b33">
              <p>  Black sling bag  <br><span class="price" style="color: #fe8e00;">  Rs. 3000 PKR</span><br> <span>289 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(149)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag34.webp" alt="b34">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag34.webp" alt="b34">
              <p>  Pink tassal handbag<br><span class="price" style="color: #fe8e00;">  Rs. 2200 PKR</span><br> <span>370 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(190)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag35.webp" alt="b35">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag35.webp" alt="b35">
              <p>  Pink handbag set <br><span class="price" style="color: #fe8e00;">  Rs. 1930 PKR</span><br> <span>65 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag36.webp" alt="b36">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag36.webp" alt="b36">
              <p>  Pink belt bag <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>189 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(100)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag37.webp" alt="b37">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag37.webp" alt="b37">
              <p>  White fur handbag  <br><span class="price" style="color: #fe8e00;">  Rs. 1380 PKR</span><br> <span>23 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag38.webp" alt="b38">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag38.webp" alt="b38">
              <p>  Beige elegant handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1640 PKR</span><br> <span>279 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(210)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag39.webp" alt="b39">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag39.webp" alt="b39">
              <p>  Brown chain handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1090 PKR</span><br> <span>103 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(56)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag40.webp" alt="b40">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag40.webp" alt="b40">
              <p>  White polka dot tote  <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>87 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(28)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag41.webp" alt="b41">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag41.webp" alt="b41">
              <p>  White tote with pink bow <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag42.webp" alt="b42">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag42.webp" alt="b42">
              <p>  Black shoulder bag <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(49)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag43.webp" alt="b43">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag43.webp" alt="b43">
              <p>  Blue quilted handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1890 PKR</span><br> <span>165 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag44.webp" alt="b44">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag44.webp" alt="b44">
              <p>  white tote with floral design  <br><span class="price" style="color: #fe8e00;">  Rs. 2200 PKR</span><br> <span>290 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(108)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag45.webp" alt="b45">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag45.webp" alt="b45">
              <p>  Black and green handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1030 PKR</span><br> <span>240 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(150)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
-             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="bag46.webp" alt="b46">
+             <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/bag46.webp" alt="b46">
              <p>   green tote with embriodery <br><span class="price" style="color: #fe8e00;">  Rs. 1900 PKR</span><br> <span>298 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(201)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag47.webp" alt="b47">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag47.webp" alt="b47">
              <p>  Beige tote with red text  <br><span class="price" style="color: #fe8e00;">  Rs. 2400 PKR</span><br> <span>304 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(296)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag48.webp" alt="b48">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag48.webp" alt="b48">
              <p> Plaid pattern handbag <br><span class="price" style="color: #fe8e00;">  Rs. 1750 PKR</span><br> <span>198 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="bag49.webp" alt="b49">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/bag49.webp" alt="b49">
              <p> Black tote with embriodery <br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>29 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="bag50.webp" alt="b50">
+             <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/bag50.webp" alt="b50">
              <p>  Black tote with purple design  <br><span class="price" style="color: #fe8e00;">  Rs. 1100 PKR</span><br> <span>195 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(35)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
@@ -706,29 +706,29 @@
   <div class="iid" >
     <h6 class="fh" style=" margin: 0 0 12px 0; white-space: nowrap;">Security certification</h6>    
     <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-      <img class="fimg" src="f1.webp" alt="">
-      <img class="fimg" src="f2.webp" alt="">
-      <img class="fimg" src="f3.webp" alt="">
-      <img class="fimg" src="f4.webp" alt="">
-      <img class="fimg" src="f5.webp" alt="">
-      <img class="fimg" src="f6.webp" alt="">
-      <img class="fimg" src="f7.webp" alt="">
+      <img class="fimg" src="images/f1.webp" alt="">
+      <img class="fimg" src="images/f2.webp" alt="">
+      <img class="fimg" src="images/f3.webp" alt="">
+      <img class="fimg" src="images/f4.webp" alt="">
+      <img class="fimg" src="images/f5.webp" alt="">
+      <img class="fimg" src="images/f6.webp" alt="">
+      <img class="fimg" src="images/f7.webp" alt="">
     </div>
   </div>
 
   <div class="iid"  style="width: 550px;">
     <h6 class="fh" style="margin: 0 0 12px 0; white-space: nowrap;">We accept</h6>    
     <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-      <img class="fimg" src="f11.webp" alt="">
-      <img class="fimg" src="f22.webp" alt="">
-      <img class="fimg" src="f33.webp" alt="">
-      <img class="fimg" src="f44.webp" alt="">
-      <img class="fimg" src="f55.webp" alt="">
-      <img class="fimg" src="f66.webp" alt="">
-      <img class="fimg" src="f77.webp" alt="">
-      <img class="fimg" src="f88.webp" alt="">
-      <img class="fimg" src="f99.webp" alt="">
-      <img class="fimg" src="f10.webp" alt="">
+      <img class="fimg" src="images/f11.webp" alt="">
+      <img class="fimg" src="images/f22.webp" alt="">
+      <img class="fimg" src="images/f33.webp" alt="">
+      <img class="fimg" src="images/f44.webp" alt="">
+      <img class="fimg" src="images/f55.webp" alt="">
+      <img class="fimg" src="images/f66.webp" alt="">
+      <img class="fimg" src="images/f77.webp" alt="">
+      <img class="fimg" src="images/f88.webp" alt="">
+      <img class="fimg" src="images/f99.webp" alt="">
+      <img class="fimg" src="images/f10.webp" alt="">
     </div>
   </div>
 </div>

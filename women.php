@@ -368,7 +368,7 @@
         <a class="a1" href="account.php">Profile</a>
        </div>
        <div class="div2">
-                <img  style="width:150px;height:50px;"src="darazlogowhite.png" alt="darazlogo">
+                <img  style="width:150px;height:50px;"src="images/darazlogowhite.png" alt="darazlogo">
                 <input type="text" id="searchbar" name="searchbar" placeholder="Search in Daraz">
                 
 

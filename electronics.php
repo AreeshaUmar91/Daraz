@@ -566,15 +566,15 @@
 </div>
 
 <div class="row rowdiv" >
-    <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="e26.webp" alt="e26">
+    <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/e26.webp" alt="e26">
     <p>  Electric Cooking Pot  <br><span class="price" style="color: #fe8e00;">  Rs. 2,200 PKR</span><br> <span>144 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(66)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="e27.webp" alt="e27">
+    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/e27.webp" alt="e27">
     <p>  Multipurpose Hot Pot  <br><span class="price" style="color: #fe8e00;">  Rs. 1,800 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="e28.webp" alt="e28">
+    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/e28.webp" alt="e28">
     <p> New Car Air Purifier  <br><span class="price" style="color: #fe8e00;">  Rs. 2,000 PKR</span><br> <span>112 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(77)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="e29.webp" alt="e29">
+    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/e29.webp" alt="e29">
     <p>  New Electric Hot Pot  <br><span class="price" style="color: #fe8e00;">  Rs. 2,500 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(55)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
-    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="e30.webp" alt="e30">
+    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/e30.webp" alt="e30">
     <p>  Electric Toothbrush   <br><span class="price" style="color: #fe8e00;">  Rs. 2,200 PKR</span><br> <span>64 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
 </div>
 
