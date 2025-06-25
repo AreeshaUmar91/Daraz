@@ -107,9 +107,9 @@ button:active {
             }
 
             localStorage.setItem('reseller', JSON.stringify({ name, email, store }));
-            localStorage.setItem('registrationStep', 'suggested'); // Move to suggested.php first
+            localStorage.setItem('registrationStep', 'suggested'); // Move to suggested.html first
             localStorage.removeItem('fromLogout'); // Ensure fresh login
-            window.location.href = 'suggested.php'; // Redirect to suggested items page
+            window.location.href = 'suggested.html'; // Redirect to suggested items page
         }
 
         function checkRegistration() {
@@ -126,12 +126,12 @@ button:active {
     if (reseller) {
         if (registrationStep === 'suggested') {
             localStorage.setItem('registrationStep', 'store'); // ✅ Set step to store only once
-            window.location.href = 'store.php';
+            window.location.href = 'store.html';
         } else if (registrationStep === 'store') {
-            window.location.href = 'store.php'; // ✅ Go to store directly after the first time
+            window.location.href = 'store.html'; // ✅ Go to store directly after the first time
         } else {
             localStorage.setItem('registrationStep', 'store'); // Ensure it's set correctly
-            window.location.href = 'store.php';
+            window.location.href = 'store.html';
         }
     } else {
         document.getElementById('registrationContainer').style.display = 'block';
@@ -140,9 +140,9 @@ button:active {
 
 
         function logout() {
-            localStorage.clear(); // 🚀 Clear all local storage data
+            localStorage.clear(); // 🚀 Clear index local storage data
             localStorage.setItem('fromLogout', 'true'); // Ensure logout flag is set
-            window.location.href = 'all.php'; // Redirect to all.php after logout
+            window.location.href = 'index.html'; // Redirect to index.html after logout
         }
 
         checkRegistration();

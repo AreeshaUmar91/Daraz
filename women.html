@@ -269,7 +269,7 @@
        .fimg{
            
            height:28px;
-            width:44px;"
+            width:44px;
        }
        .fp{
            font-family: miui, system-ui, -apple-system, BlinkMacSystem;
@@ -362,10 +362,10 @@
      
       <header>
        <div class="div1">
-        <a class="a1" href="reseller.php">Account</a>
-        <a class="a1" href="chat.php">Messages</a>
-        <a class="a1" href="cart.php">Cart</a>
-        <a class="a1" href="account.php">Profile</a>
+        <a class="a1" href="reseller.html">Account</a>
+        <a class="a1" href="chat.html">Messages</a>
+        <a class="a1" href="cart.html">Cart</a>
+        <a class="a1" href="account.html">Profile</a>
        </div>
        <div class="div2">
                 <img  style="width:150px;height:50px;"src="images/darazlogowhite.png" alt="darazlogo">
@@ -383,36 +383,36 @@
         let query = document.getElementById("searchbar").value.toLowerCase().trim();
         
         if (query === "women section") {
-            window.location.href = "women.php";
+            window.location.href = "women.html";
         } else if (query === "men section") {
-            window.location.href = "men.php";
+            window.location.href = "men.html";
         } else if (query === "kids section") {
-            window.location.href = "kids.php";
+            window.location.href = "kids.html";
         } else if (query === "sports section") {
-            window.location.href = "sports.php";
+            window.location.href = "sports.html";
         } else if (query === "jewellry section") {
-            window.location.href = "jewellry.php";
+            window.location.href = "jewellry.html";
         } else if (query === "bags section") {
-            window.location.href = "bags.php";
+            window.location.href = "bags.html";
         } else if (query === "electronics section") {
-            window.location.href = "electronics.php";
+            window.location.href = "electronics.html";
         } else if (query === "beauty section") {
-            window.location.href = "beauty.php";
+            window.location.href = "beauty.html";
         } else if (query === "toy section") {
-            window.location.href = "toy.php";
+            window.location.href = "toy.html";
         }  else if (query === "pets section") {
-            window.location.href = "pets.php";
+            window.location.href = "pets.html";
         }else {
             alert("No matching section found!");
         }
     }
 </script>
-                <a class="ci" href="cart.php">
+                <a class="ci" href="cart.html">
     <i style="margin-left: 40px; font-size: 30px; color: white;" class="fa-solid fa-cart-shopping"></i>
 </a>
       </div>
       <div class="div3">
-      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('all')">All</button>
+      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('index')">All</button>
       <button class="btn1" onclick="gotonextpage('women')">Women</button>
       <button class="btn1" onclick="gotonextpage('men')">Men</button>
       <button class="btn1" onclick="gotonextpage('kids')">Kids</button>
@@ -426,7 +426,7 @@
     </div>
 <script>
     function gotonextpage(category) {
-        window.location.href = category + ".php";
+        window.location.href = category + ".html";
     }
 </script>
      </header>
@@ -486,7 +486,25 @@
 
 
 
+<script>
+    function addToCartMessage(button) {
+      const productDiv = button.closest(".coldiv");
+      const name = productDiv.querySelector(".name").textContent;
+      const priceText = productDiv.querySelector(".price").textContent;
+      const image = productDiv.querySelector("img").src;
+      const price = parseFloat(priceText.replace(/Rs\.?|PKR/gi, '').trim());
 
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+  </script>
       <!--next process-->
     
     <br>
@@ -494,15 +512,15 @@
 
          <div class="row rowdiv">
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w1.webp" alt="women1">
-            <p>TOP Quality Blue Co-Ord Set  <br><span class="price" style="color: #fe8e00;">  Rs. 1299 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+            <p><span class="name">TOP Quality Blue Co-Ord Set </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1299 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w2.webp" alt="women2">
-             <p> Women Fashion Block Heels  <br><span class="price" style="color: #fe8e00;">  Rs. 1348 PKR</span><br> <span>110 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Women Fashion Block Heels </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1348 PKR</span><br> <span>110 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w3.webp" alt="women3">
-             <p>TOP Quality Girls Scarves <br><span class="price" style="color: #fe8e00;">  Rs.602 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">TOP Quality Girls Scarves</span> <br><span class="price" style="color: #fe8e00;">  Rs.602 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w4.webp" alt="women4">
-             <p>Women Trendy Cotton Frock  <br><span class="price" style="color: #fe8e00;">  Rs.800 PKR</span><br> <span>95 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">Women Trendy Cotton Frock </span> <br><span class="price" style="color: #fe8e00;">  Rs.800 PKR</span><br> <span>95 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w5.webp" alt="women5">
-             <p>s Pink Floral T-shirt  <br><span class="price" style="color: #fe8e00;">  Rs. 497 PKR</span><br> <span>102 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(67)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">s Pink Floral T-shirt  </span><br><span class="price" style="color: #fe8e00;">  Rs. 497 PKR</span><br> <span>102 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(67)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
 
         
@@ -510,15 +528,15 @@
 
          <div class="row rowdiv">
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv"> <img class="img2" src="images/w6.webp" alt="women6">
-         <p> Pink Bow Loafers For Girls <br><span class="price" style="color: #fe8e00;">  Rs. 1890 PKR</span><br> <span>75 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+         <p> <span class="name">Pink Bow Loafers For Girls</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1890 PKR</span><br> <span>75 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w7.webp" alt="women7">
-             <p>Girls Stylish Winter Staller <br><span class="price" style="color: #fe8e00;">  Rs. 582 PKR</span><br> <span>56 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">Girls Stylish Winter Staller</span> <br><span class="price" style="color: #fe8e00;">  Rs. 582 PKR</span><br> <span>56 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w8.webp" alt="women8">
-             <p>Trendy Black Shirt with Skirt  <br><span class="price" style="color: #fe8e00;">  Rs. 899 PKR</span><br> <span>65 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">Trendy Black Shirt with Skirt</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 899 PKR</span><br> <span>65 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w9.webp" alt="women9">
-             <p>Stylish Embroidered Jacket  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>70 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">Stylish Embroidered Jacket</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>70 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w10.webp" alt="women10">
-             <p> Pack of 5 Chiffon Hijab   <br><span class="price" style="color: #fe8e00;">  Rs. 788 PKR</span><br> <span>107 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(44)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Pack of 5 Chiffon Hijab </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 788 PKR</span><br> <span>107 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(44)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
         
 
@@ -527,15 +545,15 @@
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w11.webp" alt="women11">
-             <p> Red Fur Warm Slippers  <br><span class="price" style="color: #fe8e00;">  Rs. 489 PKR</span><br> <span>120 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Red Fur Warm Slippers </span> <br><span class="price" style="color: #fe8e00;">  Rs. 489 PKR</span><br> <span>120 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w12.webp" alt="women12">
-             <p> Purple Cartoon T-shirt  <br><span class="price" style="color: #fe8e00;">  Rs. 460 PKR</span><br> <span>110 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(17)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Purple Cartoon T-shirt </span> <br><span class="price" style="color: #fe8e00;">  Rs. 460 PKR</span><br> <span>110 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(17)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w13.webp" alt="women13">
-             <p> Latest 3-Piece Abaya set   <br><span class="price" style="color: #fe8e00;">  Rs. 2800 PKR</span><br> <span>65 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(05)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Latest 3-Piece Abaya set </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 2800 PKR</span><br> <span>65 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(05)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w14.webp" alt="women14">
-             <p>  100% TOP Quality Scraves   <br><span class="price" style="color: #fe8e00;">  Rs. 599 PKR</span><br> <span>139 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(44)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> 100% TOP Quality Scraves</span>   <br><span class="price" style="color: #fe8e00;">  Rs. 599 PKR</span><br> <span>139 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(44)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w15.webp" alt="women15">
-             <p>  New Stylish Pink  Hoodie   <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>59 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(30)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> New Stylish Pink  Hoodie </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>59 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(30)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
         
         
@@ -544,157 +562,105 @@
          
          <div class="row rowdiv">
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w16.webp" alt="women16">
-             <p>  Comfortable Shoes For Girls  <br><span class="price" style="color: #fe8e00;">  Rs. 1540 PKR</span><br> <span>72 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Comfortable Shoes For Girls  <br><span class="price" style="color: #fe8e00;">  Rs. 1540 PKR</span><br> <span>72 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w17.webp" alt="women17">
-             <p> Latest Summer Cap For Girls   <br><span class="price" style="color: #fe8e00;">  Rs. 350 PKR</span><br> <span>43 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(05)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Latest Summer Cap For Girls   <br><span class="price" style="color: #fe8e00;">  Rs. 350 PKR</span><br> <span>43 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(05)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w18.webp" alt="women18">
-             <p>  Women's Red Bow Tie Shirt   <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>97 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(29)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Women's Red Bow Tie Shirt   <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>97 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(29)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w19.webp" alt="women19">
-             <p> Luxuary Women's Sandals   <br><span class="price" style="color: #fe8e00;">  Rs. 2500 PKR</span><br> <span>130 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Luxuary Women's Sandals   <br><span class="price" style="color: #fe8e00;">  Rs. 2500 PKR</span><br> <span>130 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w20.webp" alt="women20">
-             <p>  Woolen Gloves For Girls  <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>100 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(39)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Woolen Gloves For Girls  <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>100 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(39)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
         
          
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w21.webp" alt="women21">
-             <p> Colorful Scarf Set For Girls <br><span class="price" style="color: #fe8e00;">  Rs. 1010 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Colorful Scarf Set For Girls </span><br><span class="price" style="color: #fe8e00;">  Rs. 1010 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w22.webp" alt="women22">
-             <p>  Stylish Black Printed T-Shirt  <br><span class="price" style="color: #fe8e00;">  Rs. 602 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(36)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">  Stylish Black Printed T-Shirt </span> <br><span class="price" style="color: #fe8e00;">  Rs. 602 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(36)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w23.webp" alt="women23">
-             <p>  TOP Quality Denim Cap  <br><span class="price" style="color: #fe8e00;">  Rs. 189 PKR</span><br> <span>35 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(07)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">  TOP Quality Denim Cap </span> <br><span class="price" style="color: #fe8e00;">  Rs. 189 PKR</span><br> <span>35 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(07)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w24.webp" alt="women24">
-             <p>  Best Quality Green Dupatta  <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>39 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(18)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">  Best Quality Green Dupatta </span> <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>39 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(18)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w25.webp" alt="women25">
-             <p> Women's  House  Slippers <br><span class="price" style="color: #fe8e00;">  Rs. 405 PKR</span><br> <span>140 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(86)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Women's  House  Slippers </span><br><span class="price" style="color: #fe8e00;">  Rs. 405 PKR</span><br> <span>140 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(86)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
          
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w26.webp" alt="women26">
-             <p>  Girls's Orange Co-ord Set  <br><span class="price" style="color: #fe8e00;">  Rs. 1440 PKR</span><br> <span>50 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p>  <span class="name">Girls's Orange Co-ord Set</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1440 PKR</span><br> <span>50 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w27.webp" alt="women27">
-             <p>  TOP Quality Blue Shawl  <br><span class="price" style="color: #fe8e00;">  Rs. 699 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(66)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> TOP Quality Blue Shawl</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 699 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(66)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w28.webp" alt="women28">
-             <p> Embroidery Denim  Caps <br><span class="price" style="color: #fe8e00;">  Rs. 405 PKR</span><br> <span>77 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(28)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Embroidery Denim  Caps</span> <br><span class="price" style="color: #fe8e00;">  Rs. 405 PKR</span><br> <span>77 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(28)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w29.webp" alt="women29">
-             <p>  Unique Girl's Jeans Jacket  <br><span class="price" style="color: #fe8e00;">  Rs. 1499 PKR</span><br> <span>102 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(72)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Unique Girl's Jeans Jacket </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1499 PKR</span><br> <span>102 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(72)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w30.webp" alt="women30">
-             <p>  Soft Women's Slippers <br><span class="price" style="color: #fe8e00;">  Rs. 899 PKR</span><br> <span>35 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Soft Women's Slippers </span><br><span class="price" style="color: #fe8e00;">  Rs. 899 PKR</span><br> <span>35 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
 
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w31.webp" alt="women31">
-             <p>  100% TOP Quality T-Shirt    <br><span class="price" style="color: #fe8e00;">  Rs. 630 PKR</span><br> <span>10 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(04)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> 100% TOP Quality T-Shirt  </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 630 PKR</span><br> <span>10 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(04)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w32.webp" alt="women32">
-             <p>  Fashionable Girl's Sunglasses <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>160 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(100)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Fashionable Girl's Sunglasses </span><br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>160 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(100)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w33.webp" alt="women33">
-             <p> Fashionable  Light Pink Frock   <br><span class="price" style="color: #fe8e00;">  Rs. 1005 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(47)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Fashionable  Light Pink Frock </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1005 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(47)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w34.webp" alt="women34">
-             <p>  TOP Quality Hijab Scraves  <br><span class="price" style="color: #fe8e00;">  Rs. 780 PKR</span><br> <span>112 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p>  <span class="name">TOP Quality Hijab Scraves </span> <br><span class="price" style="color: #fe8e00;">  Rs. 780 PKR</span><br> <span>112 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w35.webp" alt="women35">
-             <p>   Woolen Gloves For Girls   <br><span class="price" style="color: #fe8e00;">  Rs. 415 PKR</span><br> <span>44 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p>  <span class="name"> Woolen Gloves For Girls  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 415 PKR</span><br> <span>44 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
  
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w36.webp" alt="women36">
-             <p>Women's House Slippers<br><span class="price" style="color: #fe8e00;">  Rs.630 PKR</span><br> <span>107 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(55)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">Women's House Slippers</span><br><span class="price" style="color: #fe8e00;">  Rs.630 PKR</span><br> <span>107 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(55)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w37.webp" alt="women37">
-             <p>  Pure TOP Quality Socks <br><span class="price" style="color: #fe8e00;">  Rs. 315 PKR</span><br> <span>36 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Pure TOP Quality Socks </span><br><span class="price" style="color: #fe8e00;">  Rs. 315 PKR</span><br> <span>36 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w38.webp" alt="women38">
-             <p>  Stylish Girl's Lawn Dress <br><span class="price" style="color: #fe8e00;">  Rs. 2200 PKR</span><br> <span>17 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(06)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Stylish Girl's Lawn Dress </span><br><span class="price" style="color: #fe8e00;">  Rs. 2200 PKR</span><br> <span>17 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(06)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w39.webp" alt="women39">
-             <p>  Elegant Sandals For Women <br><span class="price" style="color: #fe8e00;">  Rs. 1600 PKR</span><br> <span>145 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(88)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Elegant Sandals For Women</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1600 PKR</span><br> <span>145 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(88)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w40.webp" alt="women40">
-             <p>  TOP Quality Sports Cap <br><span class="price" style="color: #fe8e00;">  Rs. 305 PKR</span><br> <span>56 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> TOP Quality Sports Cap </span><br><span class="price" style="color: #fe8e00;">  Rs. 305 PKR</span><br> <span>56 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
 
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w41.webp" alt="women41">
-             <p>  TOP Quality Hijab Stollers  <br><span class="price" style="color: #fe8e00;">  Rs. 655 PKR</span><br> <span>134 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p>  <span class="name">TOP Quality Hijab Stollers </span> <br><span class="price" style="color: #fe8e00;">  Rs. 655 PKR</span><br> <span>134 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w42.webp" alt="women42">
-             <p>  TOP Quality Sunglasses  <br><span class="price" style="color: #fe8e00;">  Rs. 760 PKR</span><br> <span>150 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> TOP Quality Sunglasses </span> <br><span class="price" style="color: #fe8e00;">  Rs. 760 PKR</span><br> <span>150 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w43.webp" alt="women43">
-             <p>  Stylish Western Dress  <br><span class="price" style="color: #fe8e00;">  Rs. 1699 PKR</span><br> <span>35 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Stylish Western Dress </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1699 PKR</span><br> <span>35 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w44.webp" alt="women44">
-             <p>  Woolen Gloves For Women  <br><span class="price" style="color: #fe8e00;">  Rs. 350 PKR</span><br> <span>15 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(02)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Woolen Gloves For Women </span> <br><span class="price" style="color: #fe8e00;">  Rs. 350 PKR</span><br> <span>15 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(02)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w45.webp" alt="women45">
-             <p>  Soft Women's Slippers   <br><span class="price" style="color: #fe8e00;">  Rs. 690 PKR</span><br> <span>40 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(19)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Soft Women's Slippers </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 690 PKR</span><br> <span>40 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(19)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
 
 
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/w46.webp" alt="women46">
-             <p> Stylish Embroidery  Dress  <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Stylish Embroidery  Dress </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w47.webp" alt="women47">
-             <p>   TOP Quality Hijab Scraves  <br><span class="price" style="color: #fe8e00;">  Rs. 599 PKR</span><br> <span>37 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">  TOP Quality Hijab Scraves </span> <br><span class="price" style="color: #fe8e00;">  Rs. 599 PKR</span><br> <span>37 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w48.webp" alt="women48">
-             <p>  New Stylish Socks <br><span class="price" style="color: #fe8e00;">  Rs. 299 PKR</span><br> <span>47 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(09)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> New Stylish Socks </span><br><span class="price" style="color: #fe8e00;">  Rs. 299 PKR</span><br> <span>47 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(09)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/w49.webp" alt="women49">
-             <p> Trendy Women Black Shoes  <br><span class="price" style="color: #fe8e00;">  Rs. 1769 PKR</span><br> <span>80 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Trendy Women Black Shoes </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1769 PKR</span><br> <span>80 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/w50.webp" alt="women50">
-             <p>  100% Pure TOP Quality Frock <br><span class="price" style="color: #fe8e00;">  Rs. 950 PKR</span><br> <span>16 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(04)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> 100% Pure TOP Quality Frock</span> <br><span class="price" style="color: #fe8e00;">  Rs. 950 PKR</span><br> <span>16 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(04)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
  
      </div>
  
  
 
-     <script>
-    function addToCartMessage(button) {
-        // Clone the product div (.coldiv) before modifying it
-        var productDiv = button.closest('.coldiv');
-        var productCopy = productDiv.cloneNode(true); // Clone the entire product div
-
-        if (productCopy) {
-            // Remove the "Buy Now" button only in the copied version
-            var buyNowButton = productCopy.querySelector('.buy-now-btn');
-            if (buyNowButton) {
-                buyNowButton.remove();
-            }
-
-            // Get the modified product HTML (without removing anything from women.php)
-            var productHTML = productCopy.outerHTML;
-
-            // Send the cleaned-up product data to cart.php via AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "cart.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    console.log("Added to cart.php");
-                }
-            };
-
-            xhr.send("product=" + encodeURIComponent(productHTML));
-
-            // Show success message
-            var messageDiv = document.createElement("div");
-            messageDiv.innerHTML = "Added to Cart Successfully!";
-            messageDiv.style.position = "fixed";
-            messageDiv.style.top = "50%";
-            messageDiv.style.left = "50%";
-            messageDiv.style.transform = "translate(-50%, -50%)";
-            messageDiv.style.backgroundColor = "#4CAF50";
-            messageDiv.style.color = "white";
-            messageDiv.style.fontSize = "24px";
-            messageDiv.style.padding = "20px 40px";
-            messageDiv.style.borderRadius = "8px";
-            messageDiv.style.zIndex = "9999";
-            messageDiv.style.textAlign = "center";
-            messageDiv.style.boxShadow = "0px 4px 10px rgba(0,0,0,0.2)";
-            document.body.appendChild(messageDiv);
-
-            // Remove message after 2 seconds
-            setTimeout(function () {
-                document.body.removeChild(messageDiv);
-            }, 2000);
-        }
-    }
-</script>
+ 
 
 
     <br><br>

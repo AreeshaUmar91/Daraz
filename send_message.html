@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Chatbot</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 30px;
+    }
+    #chat-box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      height: 300px;
+      overflow-y: auto;
+      background: #f9f9f9;
+    }
+    .message {
+      margin-bottom: 10px;
+    }
+    .bot { color: green; }
+    .user { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h2>Simple Chatbot</h2>
+<div id="chat-box"></div>
+<input type="text" id="userInput" placeholder="Type a message..." style="width: 300px;">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+  // Set default session username if not present
+  if (!sessionStorage.getItem("username")) {
+    sessionStorage.setItem("username", "User_" + Math.floor(Math.random() * 1000));
+  }
+
+  const responses = {
+    "hi": "Hello! How can I help you?",
+    "how are you": "I'm just a bot, but I'm doing great! 😊",
+    "bye": "Goodbye! Have a great day!",
+    "thanks": "You're welcome! 👍",
+    "where is my order": "Your order is on its way! You will receive it in 2 to 3 days.",
+    "why is my order delayed": "We apologize for the delay. We will try to deliver it faster.",
+    "i haven't received my order yet": "We’re sorry for the delay. Please check your tracking status.",
+    "i got the wrong product": "We apologize! Please share a picture of the item, and we'll arrange a replacement.",
+    "i want to cancel my order": "If your order hasn’t shipped, cancel it from your account.",
+    "how do i contact customer support": "Reach us via live chat, email, or our helpline.",
+    "can i change my order after placing it": "Orders cannot be modified once placed. You may cancel and reorder."
+    // ✅ Add more as needed...
+  };
+
+  function generateResponse(input) {
+    input = input.toLowerCase().trim();
+    return responses[input] || "Sorry, I didn't understand that.";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("userInput").value;
+    if (!input.trim()) return;
+
+    const username = sessionStorage.getItem("username");
+    const botReply = generateResponse(input);
+
+    const chatBox = document.getElementById("chat-box");
+    chatBox.innerHTML += `<div class="message user">${username}: ${input}</div>`;
+    chatBox.innerHTML += `<div class="message bot">Bot: ${botReply}</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    document.getElementById("userInput").value = "";
+  }
+</script>
+
+</body>
+</html>

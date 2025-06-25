@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <style>
+    /* All your CSS from original code remains unchanged */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .checkout-container {
+      width: 550px;
+      background: #ffffff;
+      padding: 60px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      position: relative;
+      margin-bottom: 100px;
+    }
+
+    .checkout-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .checkout-container input:focus {
+      border-color: #ff671b;
+      box-shadow: 0px 0px 6px rgba(255, 103, 27, 0.3);
+    }
+
+    .cart-items {
+      background: #fffaf0;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .cart-item {
+      background: #ffffff;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .checkout-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #ff671b;
+      padding: 15px;
+      box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .bill-details {
+      text-align: left;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 0.8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .bill-details p span {
+      color: #ffbe00;
+      font-weight: 800;
+    }
+
+    .place-order-btn {
+      background: linear-gradient(135deg, #ff671b, #ff4500);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0px 4px 10px rgba(255, 103, 27, 0.3);
+      text-transform: uppercase;
+    }
+
+    .place-order-btn:hover {
+      background: linear-gradient(135deg, #ff4500, #ff671b);
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+<body>
+
+<div class="checkout-container">
+  <h2>Checkout</h2>
+  <p id="error" style="color:red;"></p>
+
+  <form id="checkout-form">
+    <input type="text" id="name" placeholder="Full Name" required><br>
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="text" id="address" placeholder="Address" required><br>
+  </form>
+
+  <!-- Cart Items -->
+  <div class="cart-items" id="cart-items">
+    <h3>Your Items</h3>
+  </div>
+</div>
+
+<!-- Checkout Footer -->
+<div class="checkout-footer">
+  <p class="bill-details" id="total-amount">Total Amount: Rs. 0 PKR</p>
+  <button type="submit" class="place-order-btn" form="checkout-form">Place Order</button>
+</div>
+
+<script>
+  const SHIPPING_FEE = 200;
+
+  function getCart() {
+    return JSON.parse(sessionStorage.getItem('cart') || '[]');
+  }
+
+  function displayCartItems() {
+    const cartItems = getCart();
+    const cartContainer = document.getElementById('cart-items');
+    let subtotal = 0;
+
+    if (cartItems.length === 0) {
+      cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+      document.getElementById("total-amount").textContent = "Total Amount: Rs. 0 PKR";
+      return;
+    }
+
+    cartItems.forEach(productHTML => {
+      const match = productHTML.match(/Rs\. ([0-9]+\.?[0-9]*)/);
+      if (match) subtotal += parseFloat(match[1]);
+
+      const div = document.createElement("div");
+      div.className = "cart-item";
+      div.innerHTML = productHTML;
+      cartContainer.appendChild(div);
+    });
+
+    const totalAmount = subtotal + SHIPPING_FEE;
+    document.getElementById("total-amount").textContent = `Total Amount: Rs. ${totalAmount.toFixed(2)} PKR`;
+  }
+
+  // Handle Place Order
+  document.getElementById("checkout-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const cart = getCart();
+
+    if (!name || !email || !address || cart.length === 0) {
+      document.getElementById("error").textContent = "Please fill in all fields and ensure your cart is not empty.";
+      return;
+    }
+
+    // Save order name in sessionStorage
+    sessionStorage.setItem("order_name", name);
+
+    // Clear cart
+    sessionStorage.setItem("cart", JSON.stringify([]));
+
+    // Simulate redirect
+    window.location.href = "thankyou.html";
+  });
+
+  // Load cart on page load
+  displayCartItems();
+</script>
+
+</body>
+</html>

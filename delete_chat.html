@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Chat (JavaScript)</title>
+</head>
+<body>
+  <button onclick="deleteChat()">Delete Chat</button>
+  <p id="result"></p>
+
+  <script>
+    // Assume chat messages are stored in localStorage as 'chat'
+    function deleteChat() {
+      // Clear chat data from localStorage
+      localStorage.setItem("chat", "");
+
+      // Simulate a JSON response
+      const response = { status: "Chat deleted" };
+
+      // Show the result
+      document.getElementById("result").textContent = response.status;
+    }
+  </script>
+</body>
+</html>

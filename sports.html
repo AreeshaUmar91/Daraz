@@ -64,7 +64,7 @@
        }
         .div2{
              height: 70px;
-         / *  border: 2px solid black; */
+        
              text-align: left;
              background: #ff5400e6;
              padding-left:240px;
@@ -269,7 +269,7 @@
        .fimg{
            
            height:28px;
-            width:44px;"
+            width:44px;
        }
        .fp{
            font-family: miui, system-ui, -apple-system, BlinkMacSystem;
@@ -364,10 +364,10 @@
      
       <header>
        <div class="div1">
-        <a class="a1" href="reseller.php">Account</a>
-        <a class="a1" href="chat.php">Messages</a>
-        <a class="a1" href="cart.php">Cart</a>
-        <a class="a1" href="account.php">Profile</a>
+        <a class="a1" href="reseller.html">Account</a>
+        <a class="a1" href="chat.html">Messages</a>
+        <a class="a1" href="cart.html">Cart</a>
+        <a class="a1" href="account.html">Profile</a>
        </div>
        <div class="div2">
                 <img  style="width:150px;height:50px;"src="images/darazlogowhite.png" alt="darazlogo">
@@ -385,36 +385,36 @@
         let query = document.getElementById("searchbar").value.toLowerCase().trim();
         
         if (query === "women section") {
-            window.location.href = "women.php";
+            window.location.href = "women.html";
         } else if (query === "men section") {
-            window.location.href = "men.php";
+            window.location.href = "men.html";
         } else if (query === "kids section") {
-            window.location.href = "kids.php";
+            window.location.href = "kids.html";
         } else if (query === "sports section") {
-            window.location.href = "sports.php";
+            window.location.href = "sports.html";
         } else if (query === "jewellry section") {
-            window.location.href = "jewellry.php";
+            window.location.href = "jewellry.html";
         } else if (query === "bags section") {
-            window.location.href = "bags.php";
+            window.location.href = "bags.html";
         } else if (query === "electronics section") {
-            window.location.href = "electronics.php";
+            window.location.href = "electronics.html";
         } else if (query === "beauty section") {
-            window.location.href = "beauty.php";
+            window.location.href = "beauty.html";
         } else if (query === "toy section") {
-            window.location.href = "toy.php";
+            window.location.href = "toy.html";
         }  else if (query === "pets section") {
-            window.location.href = "pets.php";
+            window.location.href = "pets.html";
         }else {
             alert("No matching section found!");
         }
     }
 </script>
-                <a class="ci" href="cart.php">
+                <a class="ci" href="cart.html">
     <i style="margin-left: 40px; font-size: 30px; color: white;" class="fa-solid fa-cart-shopping"></i>
 </a>
       </div>
       <div class="div3">
-      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('all')">All</button>
+      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('index')">All</button>
       <button class="btn1" onclick="gotonextpage('women')">Women</button>
       <button class="btn1" onclick="gotonextpage('men')">Men</button>
       <button class="btn1" onclick="gotonextpage('kids')">Kids</button>
@@ -428,7 +428,7 @@
     </div>
 <script>
     function gotonextpage(category) {
-        window.location.href = category + ".php";
+        window.location.href = category + ".html";
     }
 </script>
      </header>
@@ -484,7 +484,25 @@
         });
     </script>
 
+<script>
+    function addToCartMessage(button) {
+      const productDiv = button.closest(".coldiv");
+      const name = productDiv.querySelector(".name").textContent;
+      const priceText = productDiv.querySelector(".price").textContent;
+      const image = productDiv.querySelector("img").src;
+      const price = parseFloat(priceText.replace(/Rs\.?|PKR/gi, '').trim());
 
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+  </script>
 
 
 
@@ -494,15 +512,15 @@
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s1.webp" alt="s1">
-             <p>  Hard Cricket ball   <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Hard Cricket ball </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s2.webp" alt="s2">
-             <p> PCT dress <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>600 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(389)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> PCT dress</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>600 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(389)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s3.webp" alt="s3">
-             <p>  Cricket bat  <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Cricket bat </span> <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s4.webp" alt="s4">
-             <p> Hockey white ball  <br><span class="price" style="color: #fe8e00;">  Rs. 200 PKR</span><br> <span>30 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> Hockey white ball </span> <br><span class="price" style="color: #fe8e00;">  Rs. 200 PKR</span><br> <span>30 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s5.webp" alt="s5">
-             <p>  High quality football  <br><span class="price" style="color: #fe8e00;">  Rs. 1050 PKR</span><br> <span>768 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(569)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> High quality football</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1050 PKR</span><br> <span>768 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(569)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
 
@@ -510,183 +528,130 @@
 
          <div class="row rowdiv">
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv"> <img class="img2" src="images/s6.webp" alt="s6">
-         <p>  Shuttlecocks set <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+         <p> <span class="name"> Shuttlecocks set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s7.webp" alt="s7">
-             <p>  Hockey sticks  <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">Hockey sticks </span> <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s8.webp" alt="s8">
-             <p>  High quality cricket ball <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> High quality cricket ball</span> <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s9.webp" alt="s9">
-             <p>  Badminton set <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Badminton set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s10.webp" alt="s10">
-             <p>  Boxing gloves  <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Boxing gloves </span> <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
 
 
          <div class="row rowdiv">
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s11.webp" alt="s11">
-             <p>  Boxing hand wraps  <br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>700 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(190)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Boxing hand wraps </span> <br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>700 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(190)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s12.webp" alt="s12">
-             <p>  Tennis grips set <br><span class="price" style="color: #fe8e00;">  Rs. 589 PKR</span><br> <span>490 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(178)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Tennis grips set </span><br><span class="price" style="color: #fe8e00;">  Rs. 589 PKR</span><br> <span>490 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(178)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s13.webp" alt="s13">
-             <p>  Compression leg sleeves <br><span class="price" style="color: #fe8e00;">  Rs. 360 PKR</span><br> <span>267 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(38)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Compression leg sleeves</span> <br><span class="price" style="color: #fe8e00;">  Rs. 360 PKR</span><br> <span>267 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(38)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s14.webp" alt="s14">
-             <p>  Cricket stumps <br><span class="price" style="color: #fe8e00;">  Rs. 1350 PKR</span><br> <span>398 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Cricket stumps</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1350 PKR</span><br> <span>398 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s15.webp" alt="s15">
-             <p> Cricket helmets <br><span class="price" style="color: #fe8e00;">  Rs. 690 PKR</span><br> <span>110 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Cricket helmets</span> <br><span class="price" style="color: #fe8e00;">  Rs. 690 PKR</span><br> <span>110 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s16.webp" alt="s16">
-             <p>  Skipping rope <br><span class="price" style="color: #fe8e00;">  Rs. 680 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Skipping rope </span><br><span class="price" style="color: #fe8e00;">  Rs. 680 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s17.webp" alt="s17">
-             <p>  Mikasa volleyball <br><span class="price" style="color: #fe8e00;">  Rs. 1590 PKR</span><br> <span>460 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(102)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Mikasa volleyball</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1590 PKR</span><br> <span>460 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(102)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s18.webp" alt="s18">
-             <p>  Hand grip exerciser <br><span class="price" style="color: #fe8e00;">  Rs. 740 PKR</span><br> <span>640 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(206)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Hand grip exerciser </span><br><span class="price" style="color: #fe8e00;">  Rs. 740 PKR</span><br> <span>640 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(206)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s19.webp" alt="s19">
-             <p>  High quality cricket bats   <br><span class="price" style="color: #fe8e00;">  Rs. 1750 PKR</span><br> <span>800 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(380)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name">  High quality cricket bats </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1750 PKR</span><br> <span>800 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(380)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s20.webp" alt="s20">
-             <p>  Hockey stick <br><span class="price" style="color: #fe8e00;">  Rs. 1280 PKR</span><br> <span>69 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(3)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Hockey stick </span><br><span class="price" style="color: #fe8e00;">  Rs. 1280 PKR</span><br> <span>69 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(3)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
          
          
          <div class="row rowdiv">
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s21.webp" alt="s21">
-             <p>  Badminton racket set <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>257 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(37)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name">  Badminton racket set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>257 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(37)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s22.webp" alt="s22">
-             <p>  Shuttlecock <br><span class="price" style="color: #fe8e00;">  Rs. 570 PKR</span><br> <span>289 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(78)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name">  Shuttlecock </span><br><span class="price" style="color: #fe8e00;">  Rs. 570 PKR</span><br> <span>289 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(78)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s23.webp" alt="s23">
-             <p>  Cricket pads <br><span class="price" style="color: #fe8e00;">  Rs. 920 PKR</span><br> <span>140 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name">  Cricket pads</span> <br><span class="price" style="color: #fe8e00;">  Rs. 920 PKR</span><br> <span>140 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s24.webp" alt="s24">
-             <p>  High quality football <br><span class="price" style="color: #fe8e00;">  Rs. 860 PKR</span><br> <span>600 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(150)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> High quality football </span><br><span class="price" style="color: #fe8e00;">  Rs. 860 PKR</span><br> <span>600 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(150)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s25.webp" alt="s25">
-             <p>  Sports gloves <br><span class="price" style="color: #fe8e00;">  Rs. 380 PKR</span><br> <span>427 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(112)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Sports gloves</span> <br><span class="price" style="color: #fe8e00;">  Rs. 380 PKR</span><br> <span>427 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(112)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
          
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s26.webp" alt="s26">
-             <p> Table tennis balls <br><span class="price" style="color: #fe8e00;">  Rs. 870 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Table tennis balls</span> <br><span class="price" style="color: #fe8e00;">  Rs. 870 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s27.webp" alt="s27">
-             <p>  Cricket bat  <br><span class="price" style="color: #fe8e00;">  Rs. 1060 PKR</span><br> <span>140 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(91)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Cricket bat </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1060 PKR</span><br> <span>140 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(91)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s28.webp" alt="s28">
-             <p>  Red cricket ball <br><span class="price" style="color: #fe8e00;">  Rs. 570 PKR</span><br> <span>464 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(120)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Red cricket ball </span><br><span class="price" style="color: #fe8e00;">  Rs. 570 PKR</span><br> <span>464 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(120)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s29.webp" alt="s29">
-             <p>  Golf sticks  <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>591 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(279)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Golf sticks </span> <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>591 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(279)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s30.webp" alt="s30">
-             <p>  Sports accessory pouch  <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>76 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Sports accessory pouch </span> <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>76 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s31.webp" alt="s31">
-             <p>  Cricket stumps <br><span class="price" style="color: #fe8e00;">  Rs. 1390 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(56)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">Cricket stumps </span><br><span class="price" style="color: #fe8e00;">  Rs. 1390 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(56)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s32.webp" alt="s32">
-             <p>  Colorful rubber balls  <br><span class="price" style="color: #fe8e00;">  Rs. 410 PKR</span><br> <span>34 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(14)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">Colorful rubber balls </span> <br><span class="price" style="color: #fe8e00;">  Rs. 410 PKR</span><br> <span>34 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(14)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s33.webp" alt="s33">
-             <p> Badminton racket set <br><span class="price" style="color: #fe8e00;">  Rs. 1790 PKR</span><br> <span>489 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Badminton racket set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1790 PKR</span><br> <span>489 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s34.webp" alt="s34">
-             <p>  Hockey stick <br><span class="price" style="color: #fe8e00;">  Rs. 730 PKR</span><br> <span>651 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(109)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Hockey stick</span> <br><span class="price" style="color: #fe8e00;">  Rs. 730 PKR</span><br> <span>651 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(109)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s35.webp" alt="s35">
-             <p>  Adidas football  <br><span class="price" style="color: #fe8e00;">  Rs. 680 PKR</span><br> <span>201 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(46)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Adidas football </span> <br><span class="price" style="color: #fe8e00;">  Rs. 680 PKR</span><br> <span>201 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(46)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s36.webp" alt="s36">
-             <p>  Sports shoes  <br><span class="price" style="color: #fe8e00;">  Rs. 1040 PKR</span><br> <span>481 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(106)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Sports shoes </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1040 PKR</span><br> <span>481 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(106)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s37.webp" alt="s37">
-             <p> Pakistan cricket hat <br><span class="price" style="color: #fe8e00;">  Rs. 290 PKR</span><br> <span>291 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Pakistan cricket hat </span><br><span class="price" style="color: #fe8e00;">  Rs. 290 PKR</span><br> <span>291 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s38.webp" alt="s38">
-             <p> Compression sleeves  <br><span class="price" style="color: #fe8e00;">  Rs. 450 PKR</span><br> <span>108 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(3)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Compression sleeves </span> <br><span class="price" style="color: #fe8e00;">  Rs. 450 PKR</span><br> <span>108 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(3)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s39.webp" alt="s39">
-             <p>  Shuttlecock pack  <br><span class="price" style="color: #fe8e00;">  Rs. 1060 PKR</span><br> <span>373 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(87)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Shuttlecock pack </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1060 PKR</span><br> <span>373 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(87)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s40.webp" alt="s40">
-             <p> Badminton racket set <br><span class="price" style="color: #fe8e00;">  Rs. 1740 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(7)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Badminton racket set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1740 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(7)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s41.webp" alt="s41">
-             <p>  Skipping rope set <br><span class="price" style="color: #fe8e00;">  Rs. 650 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">Skipping rope set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 650 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s42.webp" alt="s42">
-             <p>  Nike wrist bands  <br><span class="price" style="color: #fe8e00;">  Rs. 360 PKR</span><br> <span>580 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(89)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Nike wrist bands </span> <br><span class="price" style="color: #fe8e00;">  Rs. 360 PKR</span><br> <span>580 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(89)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s43.webp" alt="s43">
-             <p>  Cricket helmet <br><span class="price" style="color: #fe8e00;">  Rs. 980 PKR</span><br> <span>296 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(56)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Cricket helmet</span> <br><span class="price" style="color: #fe8e00;">  Rs. 980 PKR</span><br> <span>296 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(56)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s44.webp" alt="s44">
-             <p>  Table tennis rackets  <br><span class="price" style="color: #fe8e00;">  Rs. 1020 PKR</span><br> <span>47 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Table tennis rackets </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1020 PKR</span><br> <span>47 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s45.webp" alt="s45">
-             <p>  Table tennis net   <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>12 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name">  Table tennis net  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>12 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/s46.webp" alt="s46">
-             <p>  Tennis balls<br><span class="price" style="color: #fe8e00;">  Rs. 630 PKR</span><br> <span>78 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(3)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Tennis balls</span><br><span class="price" style="color: #fe8e00;">  Rs. 630 PKR</span><br> <span>78 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(3)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s47.webp" alt="s47">
-             <p>  Badminton shettles set<br><span class="price" style="color: #fe8e00;">  Rs. 1290 PKR</span><br> <span>379 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Badminton shettles set</span><br><span class="price" style="color: #fe8e00;">  Rs. 1290 PKR</span><br> <span>379 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s48.webp" alt="s48">
-             <p> Volley ball  <br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>129 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Volley ball </span> <br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>129 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/s49.webp" alt="s49">
-             <p>   Cricket bat SAK brand <br><span class="price" style="color: #fe8e00;">  Rs. 1690 PKR</span><br> <span>478 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(79)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">  Cricket bat SAK brand </span><br><span class="price" style="color: #fe8e00;">  Rs. 1690 PKR</span><br> <span>478 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(79)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/s50.webp" alt="s50">
-             <p>  Sports gloves <br><span class="price" style="color: #fe8e00;">  Rs. 680 PKR</span><br> <span>290 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(30)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Sports gloves</span> <br><span class="price" style="color: #fe8e00;">  Rs. 680 PKR</span><br> <span>290 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(30)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
      </div>
 
 
 
-     <script>
-    function addToCartMessage(button) {
-        // Clone the product div (.coldiv) before modifying it
-        var productDiv = button.closest('.coldiv');
-        var productCopy = productDiv.cloneNode(true); // Clone the entire product div
-
-        if (productCopy) {
-            // Remove the "Buy Now" button only in the copied version
-            var buyNowButton = productCopy.querySelector('.buy-now-btn');
-            if (buyNowButton) {
-                buyNowButton.remove();
-            }
-
-            // Get the modified product HTML (without removing anything from women.php)
-            var productHTML = productCopy.outerHTML;
-
-            // Send the cleaned-up product data to cart.php via AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "cart.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    console.log("Added to cart.php");
-                }
-            };
-
-            xhr.send("product=" + encodeURIComponent(productHTML));
-
-            // Show success message
-            var messageDiv = document.createElement("div");
-            messageDiv.innerHTML = "Added to Cart Successfully!";
-            messageDiv.style.position = "fixed";
-            messageDiv.style.top = "50%";
-            messageDiv.style.left = "50%";
-            messageDiv.style.transform = "translate(-50%, -50%)";
-            messageDiv.style.backgroundColor = "#4CAF50";
-            messageDiv.style.color = "white";
-            messageDiv.style.fontSize = "24px";
-            messageDiv.style.padding = "20px 40px";
-            messageDiv.style.borderRadius = "8px";
-            messageDiv.style.zIndex = "9999";
-            messageDiv.style.textAlign = "center";
-            messageDiv.style.boxShadow = "0px 4px 10px rgba(0,0,0,0.2)";
-            document.body.appendChild(messageDiv);
-
-            // Remove message after 2 seconds
-            setTimeout(function () {
-                document.body.removeChild(messageDiv);
-            }, 2000);
-        }
-    }
-</script>
     <br><br>
 
 <!-- Footer work -->

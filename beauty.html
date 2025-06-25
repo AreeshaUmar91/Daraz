@@ -64,7 +64,7 @@
        }
         .div2{
              height: 70px;
-         / *  border: 2px solid black; */
+        
              text-align: left;
              background: #ff5400e6;
              padding-left:240px;
@@ -269,7 +269,7 @@
        .fimg{
            
            height:28px;
-            width:44px;"
+            width:44px;
        }
        .fp{
            font-family: miui, system-ui, -apple-system, BlinkMacSystem;
@@ -362,10 +362,10 @@
      
       <header>
        <div class="div1">
-        <a class="a1" href="reseller.php">Account</a>
-        <a class="a1" href="chat.php">Messages</a>
-        <a class="a1" href="cart.php">Cart</a>
-        <a class="a1" href="account.php">Profile</a>
+        <a class="a1" href="reseller.html">Account</a>
+        <a class="a1" href="chat.html">Messages</a>
+        <a class="a1" href="cart.html">Cart</a>
+        <a class="a1" href="account.html">Profile</a>
        </div>
        <div class="div2">
                 <img  style="width:150px;height:50px;"src="images/darazlogowhite.png" alt="darazlogo">
@@ -383,36 +383,36 @@
         let query = document.getElementById("searchbar").value.toLowerCase().trim();
         
         if (query === "women section") {
-            window.location.href = "women.php";
+            window.location.href = "women.html";
         } else if (query === "men section") {
-            window.location.href = "men.php";
+            window.location.href = "men.html";
         } else if (query === "kids section") {
-            window.location.href = "kids.php";
+            window.location.href = "kids.html";
         } else if (query === "sports section") {
-            window.location.href = "sports.php";
+            window.location.href = "sports.html";
         } else if (query === "jewellry section") {
-            window.location.href = "jewellry.php";
+            window.location.href = "jewellry.html";
         } else if (query === "bags section") {
-            window.location.href = "bags.php";
+            window.location.href = "bags.html";
         } else if (query === "electronics section") {
-            window.location.href = "electronics.php";
+            window.location.href = "electronics.html";
         } else if (query === "beauty section") {
-            window.location.href = "beauty.php";
+            window.location.href = "beauty.html";
         } else if (query === "toy section") {
-            window.location.href = "toy.php";
+            window.location.href = "toy.html";
         }  else if (query === "pets section") {
-            window.location.href = "pets.php";
+            window.location.href = "pets.html";
         }else {
             alert("No matching section found!");
         }
     }
 </script>
-                <a class="ci" href="cart.php">
+                <a class="ci" href="cart.html">
     <i style="margin-left: 40px; font-size: 30px; color: white;" class="fa-solid fa-cart-shopping"></i>
 </a>
       </div>
       <div class="div3">
-      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('all')">All</button>
+      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('index')">All</button>
       <button class="btn1" onclick="gotonextpage('women')">Women</button>
       <button class="btn1" onclick="gotonextpage('men')">Men</button>
       <button class="btn1" onclick="gotonextpage('kids')">Kids</button>
@@ -426,7 +426,7 @@
     </div>
 <script>
     function gotonextpage(category) {
-        window.location.href = category + ".php";
+        window.location.href = category + ".html";
     }
 </script>
      </header>
@@ -485,7 +485,25 @@
 
 
 
+<script>
+    function addToCartMessage(button) {
+      const productDiv = button.closest(".coldiv");
+      const name = productDiv.querySelector(".name").textContent;
+      const priceText = productDiv.querySelector(".price").textContent;
+      const image = productDiv.querySelector("img").src;
+      const price = parseFloat(priceText.replace(/Rs\.?|PKR/gi, '').trim());
 
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+  </script>
 
       <!--next process-->
    <!--next process-->
@@ -493,15 +511,15 @@
 
 <div class="row rowdiv" >
     <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty1.webp" alt="beauty1">
-    <p> Pomegranate Skincare Set <br><span class="price" style="color: #fe8e00;">  Rs. 3000  PKR</span><br> <span>121 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(68)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p><span class="name"> Pomegranate Skincare Set </span><br><span class="price" style="color: #fe8e00;">  Rs. 3000  PKR</span><br> <span>121 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(68)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty2.webp" alt="beauty2">
-    <p> Camelia Moisturizing Cream <br><span class="price" style="color: #fe8e00;">  Rs. 1500  PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(38)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">Camelia Moisturizing Cream</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1500  PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(38)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty3.webp" alt="beauty3">
-    <p> Full Coverage Foundation   <br><span class="price" style="color: #fe8e00;">  Rs. 2800 PKR</span><br> <span>79 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">Full Coverage Foundation  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 2800 PKR</span><br> <span>79 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty4.webp" alt="beauty4">
-    <p>  Dark Knuckle Serum <br><span class="price" style="color: #fe8e00;">  Rs. 1600   PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(46)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Dark Knuckle Serum </span><br><span class="price" style="color: #fe8e00;">  Rs. 1600   PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(46)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty5.webp" alt="beauty5">
-    <p>  Rice Scrub Face & Body <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>234sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p>  <span class="name">Rice Scrub Face & Body</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>234sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 
@@ -509,183 +527,130 @@
 
 <div class="row rowdiv">
 <div class="col-lg-2 col-md-5 col-sm-5 coldiv"> <img class="img2" src="images/beauty6.webp" alt="beauty6">
-<p>  Black & White Lipstick  <br><span class="price" style="color: #fe8e00;">  Rs. 750PKR</span><br> <span>134 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(87)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+<p>  <span class="name">Black & White Lipstick </span> <br><span class="price" style="color: #fe8e00;">  Rs. 750PKR</span><br> <span>134 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(87)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty7.webp" alt="beauty7">
-    <p> Lip Gloss Set  <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>98 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">Lip Gloss Set </span> <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>98 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty8.webp" alt="beauty8">
-    <p>  Pink Makeup Brush Set <br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Pink Makeup Brush Set </span><br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty9.webp" alt="brauty9">
-    <p>  Mascara & Eyeliner Set <br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>160 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Mascara & Eyeliner Set </span><br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>160 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty10.webp" alt="beauty10">
-    <p>  Matte Nude Lipstick  <br><span class="price" style="color: #fe8e00;">  Rs. 500 PKR</span><br> <span>88 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Matte Nude Lipstick </span> <br><span class="price" style="color: #fe8e00;">  Rs. 500 PKR</span><br> <span>88 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 
 
 <div class="row rowdiv">
     <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty11.webp" alt="beauty11">
-    <p>  Aloe Vera Skincare Set <br><span class="price" style="color: #fe8e00;">  Rs. 2200 PKR</span><br> <span>230 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Aloe Vera Skincare Set </span><br><span class="price" style="color: #fe8e00;">  Rs. 2200 PKR</span><br> <span>230 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty12.webp" alt="beauty12">
-    <p>  Makeup Palette Box <br><span class="price" style="color: #fe8e00;">  Rs. 2500 PKR</span><br> <span>67 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(27)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Makeup Palette Box</span> <br><span class="price" style="color: #fe8e00;">  Rs. 2500 PKR</span><br> <span>67 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(27)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty13.webp" alt="beauty13">
-    <p>  Waterproof Eyeliner-Mascara  <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>106 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Waterproof Eyeliner-Mascara </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>106 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty14.webp" alt="beauty14">
-    <p>  Matte Liquid Lipstick  <br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>80 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(30)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Matte Liquid Lipstick </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>80 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(30)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty15.webp" alt="beauty15">
-    <p> BB Cream Foundation Set <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>120 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(74)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">BB Cream Foundation Set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>120 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(74)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 
 <div class="row rowdiv" >
     <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty16.webp" alt="beauty16">
-    <p>  New Foundation Cream   <br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>140 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(75)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> New Foundation Cream  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>140 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(75)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty17.webp" alt="beauty17">
-    <p>  Trendy Blush Palette <br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Trendy Blush Palette </span><br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty18.webp" alt="beauty18">
-    <p>   Trendy Makeup Tint  <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>130 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  Trendy Makeup Tint </span> <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>130 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty19.webp" alt="beauty19">
-    <p>   Makeup Base Primer <br><span class="price" style="color: #fe8e00;">  Rs. 250 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p>  <span class="name"> Makeup Base Primer </span><br><span class="price" style="color: #fe8e00;">  Rs. 250 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty20.webp" alt="beauty20">
-    <p>  Makeup Palette Kit   <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>115 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(66)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Makeup Palette Kit </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>115 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(66)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 
 
 <div class="row rowdiv">
     <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty21.webp" alt="beauty21">
-    <p>  Makeup Brush Set    <br><span class="price" style="color: #fe8e00;">  Rs. 650 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(66)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Makeup Brush Set  </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 650 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(66)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty22.webp" alt="beauty22">
-    <p>  New Foundation Cream <br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p>  <span class="name">New Foundation Cream</span> <br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty23.webp" alt="beauty23">
-    <p>  Trendy Blush Palette <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>250 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(120)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Trendy Blush Palette</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>250 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(120)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty24.webp" alt="beauty24">
-    <p>  Beauty Blender Sponge  <br><span class="price" style="color: #fe8e00;">  Rs. 250 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(43)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Beauty Blender Sponge </span> <br><span class="price" style="color: #fe8e00;">  Rs. 250 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(43)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty25.webp" alt="beauty25">
-    <p>  New Eyelash Curler <br><span class="price" style="color: #fe8e00;">  Rs. 400 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(73)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> New Eyelash Curler </span><br><span class="price" style="color: #fe8e00;">  Rs. 400 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(73)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 <div class="row rowdiv" >
     <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty26.webp" alt="beauty26">
-    <p>  Makeup Organizer   <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>220 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(111)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Makeup Organizer </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>220 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(111)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty27.webp" alt="beauty27">
-    <p>  Beauty Blenders Set <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>95 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(36)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Beauty Blenders Set </span><br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>95 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(36)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty28.webp" alt="beauty28">
-    <p>  Nail Polish Set  <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>118 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(76)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Nail Polish Set </span> <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>118 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(76)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty29.webp" alt="beauty29">
-    <p> Makeup Brush Set   <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>67 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p><span class="name"> Makeup Brush Set </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>67 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty30.webp" alt="beauty30">
-    <p> New Eyeliner Pen  <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>144 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p><span class="name"> New Eyeliner Pen </span> <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>144 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 <div class="row rowdiv" >
     <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty31.webp" alt="beauty32">
-    <p>  Eyeshadow Palette  <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>141 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p>  <span class="name"> Eyeshadow Palette </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>141 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty32.webp" alt="beauty32">
-    <p>  Cosmetic Organizer   <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  Cosmetic Organizer </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty33.webp" alt="beauty33">
-    <p>  Trendy Makeup Kit   <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>96 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(47)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p><span class="name">   Trendy Makeup Kit </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>96 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(47)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty34.webp" alt="beauty34">
-    <p>  Capsule Lipsticks Set  <br><span class="price" style="color: #fe8e00;">  Rs. 1400 PKR</span><br> <span>150 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(102)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  Capsule Lipsticks Set </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1400 PKR</span><br> <span>150 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(102)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty35.webp" alt="beauty35">
-    <p>  Matte Lipsticks Set <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>59 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  Matte Lipsticks Set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>59 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 <div class="row rowdiv" >
     <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty36.webp" alt="beauty35">
-    <p> Powder Puffs Set  <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>138 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(75)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p><span class="name">  Powder Puffs Set  </span><br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>138 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(75)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty37.webp" alt="beauty37">
-    <p>   New Blush Palette   <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>105 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(44)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">   New Blush Palette  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>105 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(44)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty38.webp" alt="beauty38">
-    <p>  Mini Glitter Eyeshadow   <br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>85 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(28)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  Mini Glitter Eyeshadow  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>85 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(28)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty39.webp" alt="beauty39">
     <p>  TOP Quality Eyeliner<br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>129 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(68)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty40.webp" alt="beauty40">
-    <p>  Makeup Fixer Spray  <br><span class="price" style="color: #fe8e00;">  Rs. 1400 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  Makeup Fixer Spray </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1400 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 <div class="row rowdiv" >
     <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty41.webp" alt="beauty41">
-    <p> Unique Shade Lipstick <br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p><span class="name">  Unique Shade Lipstick </span><br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(70)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty42.webp" alt="beauty42">
-    <p> Makeup Brush Set   <br><span class="price" style="color: #fe8e00;">  Rs. 1400 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(35)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name"> Makeup Brush Set</span>   <br><span class="price" style="color: #fe8e00;">  Rs. 1400 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(35)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty43.webp" alt="beauty43">
-    <p>  New Glitter Eyeshadow  <br><span class="price" style="color: #fe8e00;">  Rs. 1350 PKR</span><br> <span>135 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(92)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  New Glitter Eyeshadow</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1350 PKR</span><br> <span>135 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(92)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty44.webp" alt="beauty44">
-    <p>  Nude Shade Lipstick  <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(25)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  Nude Shade Lipstick </span> <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(25)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
     <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty45.webp" alt="beauty45">
-    <p>  Eyeliner & Mascara  <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>103 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <p> <span class="name">  Eyeliner & Mascara </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>103 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
+
 
 <div class="row rowdiv" >
-    <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty46.webp" alt="beauty46">
-    <p>   Flat Top Kabuki Brush  <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>70 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty47.webp" alt="beauty47">
-    <p>  Colorful Makeup Brush Set  <br><span class="price" style="color: #fe8e00;">  Rs. 950 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(44)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty48.webp" alt="beauty48">
-    <p>  Trendy Lipstick Organizer <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>127 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(75)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty49.webp" alt="beauty49">
-    <p>   Concealer & Foundation Set  <br><span class="price" style="color: #fe8e00;">  Rs. 1450 PKR</span><br> <span>78 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
-    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty50.webp" alt="beauty50">
-    <p>   Makeup Compact Powder  <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>111 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(60)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/beauty36.webp" alt="beauty35">
+    <p><span class="name">  Powder Puffs Set  </span><br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>138 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(75)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty37.webp" alt="beauty37">
+    <p> <span class="name">   New Blush Palette  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>105 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(44)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty38.webp" alt="beauty38">
+    <p> <span class="name">  Mini Glitter Eyeshadow  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>85 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(28)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/beauty39.webp" alt="beauty39">
+    <p>  TOP Quality Eyeliner<br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>129 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(68)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+    <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/beauty40.webp" alt="beauty40">
+    <p> <span class="name">  Makeup Fixer Spray </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1400 PKR</span><br> <span>99 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(33)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
 </div>
 
 </div>
 
-     <script>
-    function addToCartMessage(button) {
-        // Clone the product div (.coldiv) before modifying it
-        var productDiv = button.closest('.coldiv');
-        var productCopy = productDiv.cloneNode(true); // Clone the entire product div
-
-        if (productCopy) {
-            // Remove the "Buy Now" button only in the copied version
-            var buyNowButton = productCopy.querySelector('.buy-now-btn');
-            if (buyNowButton) {
-                buyNowButton.remove();
-            }
-
-            // Get the modified product HTML (without removing anything from women.php)
-            var productHTML = productCopy.outerHTML;
-
-            // Send the cleaned-up product data to cart.php via AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "cart.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    console.log("Added to cart.php");
-                }
-            };
-
-            xhr.send("product=" + encodeURIComponent(productHTML));
-
-            // Show success message
-            var messageDiv = document.createElement("div");
-            messageDiv.innerHTML = "Added to Cart Successfully!";
-            messageDiv.style.position = "fixed";
-            messageDiv.style.top = "50%";
-            messageDiv.style.left = "50%";
-            messageDiv.style.transform = "translate(-50%, -50%)";
-            messageDiv.style.backgroundColor = "#4CAF50";
-            messageDiv.style.color = "white";
-            messageDiv.style.fontSize = "24px";
-            messageDiv.style.padding = "20px 40px";
-            messageDiv.style.borderRadius = "8px";
-            messageDiv.style.zIndex = "9999";
-            messageDiv.style.textAlign = "center";
-            messageDiv.style.boxShadow = "0px 4px 10px rgba(0,0,0,0.2)";
-            document.body.appendChild(messageDiv);
-
-            // Remove message after 2 seconds
-            setTimeout(function () {
-                document.body.removeChild(messageDiv);
-            }, 2000);
-        }
-    }
-</script>
-    <br><br>
-
+ 
 <!-- Footer work -->
 
 <div  class="fmd">
@@ -783,13 +748,28 @@
   <a class="a3" href="privacy.html">Privacy Policy</a>
   <a class="a3" href="choices.html">Your Privacy Choices</a>
 </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function addToCartMessage(button) {
+  const productDiv = button.closest(".coldiv");
+  const name = productDiv.querySelector(".name").textContent;
+  const priceText = productDiv.querySelector(".price").textContent;
+  const image = productDiv.querySelector("img").src;
 
+  const price = parseFloat(priceText.replace(/Rs\.?|PKR/gi, "").trim());
 
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ name, price, image, quantity: 1 });
+  }
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Added to cart!");
+}
+</script>
 </body>
 </html>

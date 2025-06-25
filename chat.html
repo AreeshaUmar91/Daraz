@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WhatsApp-Style Live Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e5ddd5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .chat-container {
+      width: 600px;
+      height: 700px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    .chat-header {
+      background: #075e54;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .delete-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .chat-box {
+      width: 90%;
+      height: 400px;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      background: url('whatsapp-bg.png');
+    }
+    .message {
+      max-width: 70%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      margin: 5px;
+      font-size: 14px;
+      position: relative;
+      word-wrap: break-word;
+    }
+    .sender {
+      align-self: flex-end;
+      background: #dcf8c6;
+      color: black;
+    }
+    .receiver {
+      align-self: flex-start;
+      background: #fff;
+      border: 1px solid #ddd;
+      color: black;
+    }
+    .timestamp {
+      font-size: 10px;
+      color: gray;
+      position: absolute;
+      bottom: 3px;
+      right: 10px;
+    }
+    .chat-input-container {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      margin-top: auto;
+    }
+    .chat-input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      outline: none;
+    }
+    .send-btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      margin-left: 10px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .send-btn:hover { background: #0056b3; }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .alert-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 300px;
+      font-size: 16px;
+    }
+    .alert-box button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .alert-box button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="chat-header">
+    <span>Live Chat</span>
+    <button onclick="showAlert()" class="delete-btn">🗑</button>
+  </div>
+  <div class="chat-box" id="chat-box"></div>
+  <div class="chat-input-container">
+    <input type="text" id="message" class="chat-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+    <button onclick="sendMessage()" class="send-btn">➤</button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="alert-box">
+    <p>Are you sure you want to delete the chat?</p>
+    <button onclick="deleteChat()">Yes</button>
+    <button onclick="hideAlert()">No</button>
+  </div>
+</div>
+
+<script>
+  // Simulate session username
+  if (!sessionStorage.getItem("username")) {
+    sessionStorage.setItem("username", "User_" + Math.floor(Math.random() * 900 + 100));
+  }
+  const username = sessionStorage.getItem("username");
+
+  // Load chat messages from localStorage
+  function loadChat() {
+    const chatBox = document.getElementById("chat-box");
+    const chatData = JSON.parse(localStorage.getItem("chat")) || [];
+    chatBox.innerHTML = "";
+
+    chatData.forEach(msg => {
+      const msgDiv = document.createElement("div");
+      msgDiv.className = `message ${msg.user === username ? "sender" : "receiver"}`;
+      msgDiv.innerHTML = `${msg.text}<span class="timestamp">${msg.time}</span>`;
+      chatBox.appendChild(msgDiv);
+    });
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  // Send user message
+  function sendMessage() {
+    const input = document.getElementById("message");
+    const text = input.value.trim();
+    if (!text) return;
+
+    const chatData = JSON.parse(localStorage.getItem("chat")) || [];
+    const time = new Date().toLocaleTimeString();
+
+    chatData.push({ user: username, text, time });
+    localStorage.setItem("chat", JSON.stringify(chatData));
+
+    input.value = "";
+    loadChat();
+
+    // Simulate bot reply after delay
+    setTimeout(() => botReply(text), 800);
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === "Enter") sendMessage();
+  }
+
+  function showAlert() {
+    document.getElementById("overlay").style.display = "flex";
+  }
+
+  function hideAlert() {
+    document.getElementById("overlay").style.display = "none";
+  }
+
+  function deleteChat() {
+    localStorage.removeItem("chat");
+    hideAlert();
+    loadChat();
+  }
+
+  // Bot reply logic
+  function botReply(userText) {
+    const text = userText.toLowerCase();
+
+    // Match known patterns
+    const responses = [
+      { keywords: ["hi", "hello"], reply: "Hello there! 👋 How can I help you today?" },
+      { keywords: ["recommend", "suggest"], reply: "Here are some hot picks: 🎧 Earbuds, 👗 Dresses, 📱 Power banks. Want more suggestions?" },
+      { keywords: ["object"], reply: "Some cool objects: Rubik's cube 🧠, Kindle 📖, Lava lamp 🧼, Mini robot 🤖." },
+      { keywords: ["where is my order", "track"], reply: "📦 Your order is on its way! You can also track it from your Orders page." },
+      { keywords: ["return"], reply: "🔄 To return a product, go to 'My Orders' > Select Item > Return Item." },
+      { keywords: ["discount", "deal"], reply: "🎉 Yes! Check out Flash Sale ⚡, Mega Deals 💥, or grab some vouchers 🎟️!" },
+      { keywords: ["cash on delivery", "pay on delivery"], reply: "Yes! 💵 Cash on Delivery is available for most products." },
+      { keywords: ["contact support", "help"], reply: "👩‍💻 You can reach support from the Help Center or ask me right here!" },
+      { keywords: ["how long", "delivery time"], reply: "🚚 Usually 2–5 business days. Some sellers offer express shipping too." },
+      { keywords: ["original", "authentic"], reply: "Look for ✅ 'Daraz Verified' or 'Mall' tags to know it’s authentic!" },
+      { keywords: ["cancel"], reply: "You can cancel your order before it ships. Go to 'My Orders' > Cancel Order." },
+      { keywords: ["how are you"], reply: "I'm just a happy bot running in the browser 😄 What about you?" },
+      { keywords: ["joke"], reply: "Why don’t robots panic? Because they always keep their bits together! 🤖😂" },
+      { keywords: ["bye"], reply: "Goodbye! See you again soon 🌟." },
+    ];
+
+    const replyObj = responses.find(r =>
+      r.keywords.some(keyword => text.includes(keyword))
+    );
+
+    const reply = replyObj
+      ? replyObj.reply
+      : "🤔 Sorry, I didn't quite catch that. Try asking about orders, returns, or discounts.";
+
+    const chatData = JSON.parse(localStorage.getItem("chat")) || [];
+    const time = new Date().toLocaleTimeString();
+
+    chatData.push({ user: "Bot", text: reply, time });
+    localStorage.setItem("chat", JSON.stringify(chatData));
+    loadChat();
+  }
+
+  // Auto-refresh
+  setInterval(loadChat, 1000);
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Chat Viewer</title>
+</head>
+<body>
+
+  <h2>Chat Messages</h2>
+  <div id="chat-display"></div>
+
+  <script>
+    // Load and display chat messages from localStorage
+    function loadChat() {
+      const chatDisplay = document.getElementById("chat-display");
+
+      // Get chat data or fallback to empty string
+      const chatData = localStorage.getItem("chat") || "";
+
+      if (chatData.trim()) {
+        // Replace newline characters with <br> (like nl2br)
+        chatDisplay.innerHTML = chatData.replace(/\n/g, "<br>");
+      } else {
+        chatDisplay.innerHTML = "<p>No messages yet...</p>";
+      }
+    }
+
+    loadChat();
+  </script>
+
+</body>
+</html>

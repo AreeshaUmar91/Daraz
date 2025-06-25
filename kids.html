@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,7 @@
        }
         .div2{
              height: 70px;
-         / *  border: 2px solid black; */
+       
              text-align: left;
              background: #ff5400e6;
              padding-left:240px;
@@ -269,7 +269,7 @@
        .fimg{
            
            height:28px;
-            width:44px;"
+            width:44px;
        }
        .fp{
            font-family: miui, system-ui, -apple-system, BlinkMacSystem;
@@ -362,10 +362,10 @@
      
       <header>
        <div class="div1">
-        <a class="a1" href="reseller.php">Account</a>
-        <a class="a1" href="chat.php">Messages</a>
-        <a class="a1" href="cart.php">Cart</a>
-        <a class="a1" href="account.php">Profile</a>
+        <a class="a1" href="reseller.html">Account</a>
+        <a class="a1" href="chat.html">Messages</a>
+        <a class="a1" href="cart.html">Cart</a>
+        <a class="a1" href="account.html">Profile</a>
        </div>
        <div class="div2">
                 <img  style="width:150px;height:50px;"src="images/darazlogowhite.png" alt="darazlogo">
@@ -383,36 +383,36 @@
         let query = document.getElementById("searchbar").value.toLowerCase().trim();
         
         if (query === "women section") {
-            window.location.href = "women.php";
+            window.location.href = "women.html";
         } else if (query === "men section") {
-            window.location.href = "men.php";
+            window.location.href = "men.html";
         } else if (query === "kids section") {
-            window.location.href = "kids.php";
+            window.location.href = "kids.html";
         } else if (query === "sports section") {
-            window.location.href = "sports.php";
+            window.location.href = "sports.html";
         } else if (query === "jewellry section") {
-            window.location.href = "jewellry.php";
+            window.location.href = "jewellry.html";
         } else if (query === "bags section") {
-            window.location.href = "bags.php";
+            window.location.href = "bags.html";
         } else if (query === "electronics section") {
-            window.location.href = "electronics.php";
+            window.location.href = "electronics.html";
         } else if (query === "beauty section") {
-            window.location.href = "beauty.php";
+            window.location.href = "beauty.html";
         } else if (query === "toy section") {
-            window.location.href = "toy.php";
+            window.location.href = "toy.html";
         }  else if (query === "pets section") {
-            window.location.href = "pets.php";
+            window.location.href = "pets.html";
         }else {
             alert("No matching section found!");
         }
     }
 </script>
-                <a class="ci" href="cart.php">
+                <a class="ci" href="cart.html">
     <i style="margin-left: 40px; font-size: 30px; color: white;" class="fa-solid fa-cart-shopping"></i>
 </a>
       </div>
       <div class="div3">
-      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('all')">All</button>
+      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('index')">All</button>
       <button class="btn1" onclick="gotonextpage('women')">Women</button>
       <button class="btn1" onclick="gotonextpage('men')">Men</button>
       <button class="btn1" onclick="gotonextpage('kids')">Kids</button>
@@ -426,7 +426,7 @@
     </div>
 <script>
     function gotonextpage(category) {
-        window.location.href = category + ".php";
+        window.location.href = category + ".html";
     }
 </script>
      </header>
@@ -482,6 +482,26 @@
         });
     </script>
 
+<script>
+    function addToCartMessage(button) {
+      const productDiv = button.closest(".coldiv");
+      const name = productDiv.querySelector(".name").textContent;
+      const priceText = productDiv.querySelector(".price").textContent;
+      const image = productDiv.querySelector("img").src;
+      const price = parseFloat(priceText.replace(/Rs\.?|PKR/gi, '').trim());
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+  </script>
+
 
 
 
@@ -492,15 +512,15 @@
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids1.webp" alt="kids1">
-             <p> Mickey mouse kids outfit  <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Mickey mouse kids outfit </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids2.webp" alt="kids2">
-             <p>  White baby shoes <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>100 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(36)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">White baby shoes</span> <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>100 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(36)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids3.webp" alt="kids3">
-             <p>  Pink hoodie for kids  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">Pink hoodie for kids </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids4.webp" alt="kids4">
-             <p>  Baby pink socks <br><span class="price" style="color: #fe8e00;">  Rs. 200 PKR</span><br> <span>50 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Baby pink socks</span> <br><span class="price" style="color: #fe8e00;">  Rs. 200 PKR</span><br> <span>50 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids5.webp" alt="kids5">
-             <p>  Unique baby shoes  <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>400 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(25)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Unique baby shoes</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>400 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(25)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
 
@@ -508,183 +528,131 @@
 
          <div class="row rowdiv">
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv"> <img class="img2" src="images/kids6.webp" alt="kids6">
-         <p>  Mama's boy baby outfit  <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>350 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+         <p>  <span class="name">Mama's boy baby outfit </span> <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>350 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids7.webp" alt="kids7">
-             <p>  Colorful babay gloves  <br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>80 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Colorful babay gloves</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 900 PKR</span><br> <span>80 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids8.webp" alt="kids8">
-             <p> Black baby dress  <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(100)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Black baby dress </span> <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(100)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids9.webp" alt="kids9">
-             <p> Pink baby cap set <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>50 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> Pink baby cap set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>50 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids10.webp" alt="kids10">
-             <p> white baby bodysuit <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">white baby bodysuit</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>125 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
 
 
          <div class="row rowdiv">
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids11.webp" alt="kids11">
-             <p>  Multi color kids socks   <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">Multi color kids socks </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(50)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids12.webp" alt="kids12">
-             <p>  Combo of shoes & hairband <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Combo of shoes & hairband</span> <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids13.webp" alt="kids13">
-             <p>  Baby decent outfit  <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(200)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">Baby decent outfit </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(200)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids14.webp" alt="kids15">
-             <p>  Pink baby sweater  <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>150 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Pink baby sweater</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>150 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids15.webp" alt="kids15">
-             <p>  Baby shoes with ribbons  <br><span class="price" style="color: #fe8e00;">  Rs. 400 PKR</span><br> <span>100 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Baby shoes with ribbons </span> <br><span class="price" style="color: #fe8e00;">  Rs. 400 PKR</span><br> <span>100 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(9)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids16.webp" alt="kids16">
-             <p>  Baby feeding plates <br><span class="price" style="color: #fe8e00;">  Rs. 200 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(6)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Baby feeding plates </span><br><span class="price" style="color: #fe8e00;">  Rs. 200 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(6)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids17.webp" alt="kids17">
-             <p> Trendy baby shoes <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>150 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> Trendy baby shoes</span> <br><span class="price" style="color: #fe8e00;">  Rs. 850 PKR</span><br> <span>150 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids18.webp" alt="kids18">
-             <p>  White stylish outfit <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>250 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> White stylish outfit</span> <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>250 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(80)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids19.webp" alt="kids19">
-             <p>  Orange sweater & trouser <br><span class="price" style="color: #fe8e00;">  Rs. 1600 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(150)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Orange sweater & trouser</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1600 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(150)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids20.webp" alt="kids20">
-             <p>  Purple fluffy hat  <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>30 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Purple fluffy hat </span> <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>30 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
         
          
          
          <div class="row rowdiv">
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids21.webp" alt="kids21">
-             <p>  Pink fleece jacket  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Pink fleece jacket </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids22.webp" alt="kids22">
-             <p>  Kids cartoons socks <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>800 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(200)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Kids cartoons socks</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>800 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(200)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids23.webp" alt="kids23">
-             <p>  Sweater with pants  <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>250 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p>  <span class="name">Sweater with pants </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>250 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids24.webp" alt="kids24">
-             <p>  Stylish babay gloves  <br><span class="price" style="color: #fe8e00;">  Rs. 250 PKR</span><br> <span>10 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(2)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Stylish babay gloves</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 250 PKR</span><br> <span>10 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(2)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids25.webp" alt="kids25">
-             <p>  Winter set for kids  <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>25 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Winter set for kids </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1000 PKR</span><br> <span>25 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
          
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids26.webp" alt="kids26">
-             <p>  Trendy style socks <br><span class="price" style="color: #fe8e00;">  Rs. 950 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(180)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Trendy style socks </span><br><span class="price" style="color: #fe8e00;">  Rs. 950 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(180)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids27.webp" alt="kids27">
-             <p>  Unique baby bracelet  <br><span class="price" style="color: #fe8e00;">  Rs. 100 PKR</span><br> <span>600 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(300)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Unique baby bracelet </span> <br><span class="price" style="color: #fe8e00;">  Rs. 100 PKR</span><br> <span>600 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(300)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids28.webp" alt="kids28">
-             <p>  Pink bunny bathrobe <br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(450)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Pink bunny bathrobe </span><br><span class="price" style="color: #fe8e00;">  Rs. 750 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(450)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids29.webp" alt="kids29">
-             <p>  Frilly baby frock  <br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>120 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Frilly baby frock </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>120 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids30.webp" alt="kids30">
-             <p>  Bunny cozy slippers <br><span class="price" style="color: #fe8e00;">  Rs. 780 PKR</span><br> <span>190 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Bunny cozy slippers</span> <br><span class="price" style="color: #fe8e00;">  Rs. 780 PKR</span><br> <span>190 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(90)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids31.webp" alt="kids31">
-             <p>  New baby cap  <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>290 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(140)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> New baby cap </span> <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>290 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(140)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids32.webp" alt="kids32">
-             <p>  Baby towel set <br><span class="price" style="color: #fe8e00;">  Rs. 1600 PKR</span><br> <span>145 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(96)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name">Baby towel set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1600 PKR</span><br> <span>145 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(96)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids33.webp" alt="kids33">
-             <p> set of bands & socks <br><span class="price" style="color: #fe8e00;">  Rs. 650 PKR</span><br> <span>145 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(7)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> set of bands & socks </span><br><span class="price" style="color: #fe8e00;">  Rs. 650 PKR</span><br> <span>145 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(7)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids34.webp" alt="kids34">
-             <p>  Trendy baby outfit  <br><span class="price" style="color: #fe8e00;">  Rs. 1050 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(150)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Trendy baby outfit  </span><br><span class="price" style="color: #fe8e00;">  Rs. 1050 PKR</span><br> <span>300 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(150)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids35.webp" alt="kids35">
-             <p>  Green fancy frock  <br><span class="price" style="color: #fe8e00;">  Rs. 3000 PKR</span><br> <span>40 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Green fancy frock </span> <br><span class="price" style="color: #fe8e00;">  Rs. 3000 PKR</span><br> <span>40 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids36.webp" alt="kids36">
-             <p>  Blue baby gloves  <br><span class="price" style="color: #fe8e00;">  Rs. 500 PKR</span><br> <span>360 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(200)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Blue baby gloves </span> <br><span class="price" style="color: #fe8e00;">  Rs. 500 PKR</span><br> <span>360 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(200)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids37.webp" alt="kids37">
-             <p>  Kitty pink bag  <br><span class="price" style="color: #fe8e00;">  Rs. 1190 PKR</span><br> <span>800 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(600)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Kitty pink bag </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1190 PKR</span><br> <span>800 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(600)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids38.webp" alt="kids38">
-             <p>  Pink baby bracelets <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(105)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Pink baby bracelets</span> <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>200 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(105)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids39.webp" alt="kids39">
-             <p>  Fluffy baby sweater <br><span class="price" style="color: #fe8e00;">  Rs. 1490 PKR</span><br> <span>315 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(125)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Fluffy baby sweater </span><br><span class="price" style="color: #fe8e00;">  Rs. 1490 PKR</span><br> <span>315 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(125)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids40.webp" alt="kids40">
-             <p> Pair of frocks <br><span class="price" style="color: #fe8e00;">  Rs. 2600 PKR</span><br> <span>180 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(72)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> Pair of frocks</span> <br><span class="price" style="color: #fe8e00;">  Rs. 2600 PKR</span><br> <span>180 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(72)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids41.webp" alt="kids41">
-             <p>  Orange cartoon slipper  <br><span class="price" style="color: #fe8e00;">  Rs. 560 PKR</span><br> <span>28 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Orange cartoon slipper </span> <br><span class="price" style="color: #fe8e00;">  Rs. 560 PKR</span><br> <span>28 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids42.webp" alt="kids42">
-             <p> Grey kids booties  <br><span class="price" style="color: #fe8e00;">  Rs. 575 PKR</span><br> <span>328 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(35)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> Grey kids booties </span> <br><span class="price" style="color: #fe8e00;">  Rs. 575 PKR</span><br> <span>328 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(35)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids43.webp" alt="kids43">
-             <p> Black boy outfit <br><span class="price" style="color: #fe8e00;">  Rs. 1240 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> Black boy outfit</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1240 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids44.webp" alt="kids44">
-             <p>  Set of bracelets  <br><span class="price" style="color: #fe8e00;">  Rs. 270 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(267)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Set of bracelets</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 270 PKR</span><br> <span>500 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(267)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids45.webp" alt="kids45">
-             <p> Barbie sweet shirt  <br><span class="price" style="color: #fe8e00;">  Rs. 745 PKR</span><br> <span>267 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(129)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Barbie sweet shirt  </span><br><span class="price" style="color: #fe8e00;">  Rs. 745 PKR</span><br> <span>267 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(129)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
          <div class="row rowdiv" >
              <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/kids46.webp" alt="kids46">
-             <p>  Soft baby socks  <br><span class="price" style="color: #fe8e00;">  Rs. 1040 PKR</span><br> <span>400 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(289)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Soft baby socks </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1040 PKR</span><br> <span>400 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(289)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids47.webp" alt="kids47">
-             <p> Baby cute blanket  <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>304 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(76)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name">Baby cute blanket </span> <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>304 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(76)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids48.webp" alt="kids48">
-             <p> Stylish baby outfit  <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>267 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(190)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name"> Stylish baby outfit </span> <br><span class="price" style="color: #fe8e00;">  Rs. 600 PKR</span><br> <span>267 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(190)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/kids49.webp" alt="kids49">
-             <p>  Cartoon faces slippers <br><span class="price" style="color: #fe8e00;">  Rs. 1080 PKR</span><br> <span>180 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(30)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p><span class="name">  Cartoon faces slippers</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1080 PKR</span><br> <span>180 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(30)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/kids50.webp" alt="kids50">
-             <p>  Pink frock trendy  <br><span class="price" style="color: #fe8e00;">  Rs. 760 PKR</span><br> <span>230 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(189)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
+             <p> <span class="name"> Pink frock trendy </span> <br><span class="price" style="color: #fe8e00;">  Rs. 760 PKR</span><br> <span>230 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(189)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div> 
          </div>
 
      </div>
 
 
 
-     <script>
-    function addToCartMessage(button) {
-        // Clone the product div (.coldiv) before modifying it
-        var productDiv = button.closest('.coldiv');
-        var productCopy = productDiv.cloneNode(true); // Clone the entire product div
-
-        if (productCopy) {
-            // Remove the "Buy Now" button only in the copied version
-            var buyNowButton = productCopy.querySelector('.buy-now-btn');
-            if (buyNowButton) {
-                buyNowButton.remove();
-            }
-
-            // Get the modified product HTML (without removing anything from women.php)
-            var productHTML = productCopy.outerHTML;
-
-            // Send the cleaned-up product data to cart.php via AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "cart.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    console.log("Added to cart.php");
-                }
-            };
-
-            xhr.send("product=" + encodeURIComponent(productHTML));
-
-            // Show success message
-            var messageDiv = document.createElement("div");
-            messageDiv.innerHTML = "Added to Cart Successfully!";
-            messageDiv.style.position = "fixed";
-            messageDiv.style.top = "50%";
-            messageDiv.style.left = "50%";
-            messageDiv.style.transform = "translate(-50%, -50%)";
-            messageDiv.style.backgroundColor = "#4CAF50";
-            messageDiv.style.color = "white";
-            messageDiv.style.fontSize = "24px";
-            messageDiv.style.padding = "20px 40px";
-            messageDiv.style.borderRadius = "8px";
-            messageDiv.style.zIndex = "9999";
-            messageDiv.style.textAlign = "center";
-            messageDiv.style.boxShadow = "0px 4px 10px rgba(0,0,0,0.2)";
-            document.body.appendChild(messageDiv);
-
-            // Remove message after 2 seconds
-            setTimeout(function () {
-                document.body.removeChild(messageDiv);
-            }, 2000);
-        }
-    }
-</script>
+  
     <br><br>
 
 <!-- Footer work -->

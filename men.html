@@ -269,7 +269,7 @@
        .fimg{
            
            height:28px;
-            width:44px;"
+            width:44px;
        }
        .fp{
            font-family: miui, system-ui, -apple-system, BlinkMacSystem;
@@ -364,10 +364,10 @@
      
       <header>
        <div class="div1">
-        <a class="a1" href="reseller.php">Account</a>
-        <a class="a1" href="chat.php">Messages</a>
-        <a class="a1" href="cart.php">Cart</a>
-        <a class="a1" href="account.php">profile</a>
+        <a class="a1" href="reseller.html">Account</a>
+        <a class="a1" href="chat.html">Messages</a>
+        <a class="a1" href="cart.html">Cart</a>
+        <a class="a1" href="account.html">profile</a>
        </div>
        <div class="div2">
                 <img  style="width:150px;height:50px;"src="images/darazlogowhite.png" alt="darazlogo">
@@ -385,36 +385,36 @@
         let query = document.getElementById("searchbar").value.toLowerCase().trim();
         
         if (query === "women section") {
-            window.location.href = "women.php";
+            window.location.href = "women.html";
         } else if (query === "men section") {
-            window.location.href = "men.php";
+            window.location.href = "men.html";
         } else if (query === "kids section") {
-            window.location.href = "kids.php";
+            window.location.href = "kids.html";
         } else if (query === "sports section") {
-            window.location.href = "sports.php";
+            window.location.href = "sports.html";
         } else if (query === "jewellry section") {
-            window.location.href = "jewellry.php";
+            window.location.href = "jewellry.html";
         } else if (query === "bags section") {
-            window.location.href = "bags.php";
+            window.location.href = "bags.html";
         } else if (query === "electronics section") {
-            window.location.href = "electronics.php";
+            window.location.href = "electronics.html";
         } else if (query === "beauty section") {
-            window.location.href = "beauty.php";
+            window.location.href = "beauty.html";
         } else if (query === "toy section") {
-            window.location.href = "toy.php";
+            window.location.href = "toy.html";
         }  else if (query === "pets section") {
-            window.location.href = "pets.php";
+            window.location.href = "pets.html";
         }else {
             alert("No matching section found!");
         }
     }
 </script>
-                <a class="ci" href="cart.php">
+                <a class="ci" href="cart.html">
     <i style="margin-left: 40px; font-size: 30px; color: white;" class="fa-solid fa-cart-shopping"></i>
 </a>
       </div>
       <div class="div3">
-      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('all')">All</button>
+      <button class="btn1" style="margin-left:25px;" onclick="gotonextpage('index')">All</button>
       <button class="btn1" onclick="gotonextpage('women')">Women</button>
       <button class="btn1" onclick="gotonextpage('men')">Men</button>
       <button class="btn1" onclick="gotonextpage('kids')">Kids</button>
@@ -428,7 +428,7 @@
     </div>
 <script>
     function gotonextpage(category) {
-        window.location.href = category + ".php";
+        window.location.href = category + ".html";
     }
 </script>
      </header>
@@ -483,7 +483,25 @@
             },
         });
     </script>
+<script>
+    function addToCartMessage(button) {
+      const productDiv = button.closest(".coldiv");
+      const name = productDiv.querySelector(".name").textContent;
+      const priceText = productDiv.querySelector(".price").textContent;
+      const image = productDiv.querySelector("img").src;
+      const price = parseFloat(priceText.replace(/Rs\.?|PKR/gi, '').trim());
 
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+  </script>
 
 
 
@@ -494,30 +512,30 @@
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men1.webp" alt="men1">
-             <p>   Men’s Summer T-Shirt  <br><span class="price" style="color: #fe8e00;">  Rs. 605 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p>  <span class="name"> Men’s Summer T-Shirt </span> <br><span class="price" style="color: #fe8e00;">  Rs. 605 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men2.webp" alt="men2">
-             <p>  Summer Trousers For Mens <br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>39 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(07)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Summer Trousers For Mens </span><br><span class="price" style="color: #fe8e00;">  Rs. 700 PKR</span><br> <span>39 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(07)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men3.webp" alt="men3">
-             <p>  Lightweight  Sports Shoes   <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>42 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Lightweight  Sports Shoes </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1500 PKR</span><br> <span>42 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(15)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men4.webp" alt="men4">
-             <p> High Quality Wrist Watch<br><span class="price" style="color: #fe8e00;">  Rs. 810 PKR</span><br> <span>120 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">High Quality Wrist Watch<br><span class="price" style="color: #fe8e00;">  Rs. 810 PKR</span><br> <span>120 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men5.webp" alt="men5">
-             <p> Pack of 2 Sports Black Caps  <br><span class="price" style="color: #fe8e00;">  Rs. 399 PKR</span><br> <span>12 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(03)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Pack of 2 Sports Black Caps </span> <br><span class="price" style="color: #fe8e00;">  Rs. 399 PKR</span><br> <span>12 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(03)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
 
 
 
          <div class="row rowdiv">
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv"> <img class="img2" src="images/men6.webp" alt="men6">
-         <p> Perfume & Body Spray Set <br><span class="price" style="color: #fe8e00;">  Rs. 1599 PKR</span><br> <span>52 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(17)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+         <p> <span class="name">Perfume & Body Spray Set</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1599 PKR</span><br> <span>52 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(17)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men7.webp" alt="men7">
-             <p>  Stylish Cufflinks For Mens<br><span class="price" style="color: #fe8e00;">  Rs. 299 PKR</span><br> <span>25 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(07)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Stylish Cufflinks For Mens</span><br><span class="price" style="color: #fe8e00;">  Rs. 299 PKR</span><br> <span>25 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(07)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men8.webp" alt="men8">
-             <p> Trendy Black Sneakers <br><span class="price" style="color: #fe8e00;">  Rs. 1590 PKR</span><br> <span>12 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(03)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Trendy Black Sneakers </span><br><span class="price" style="color: #fe8e00;">  Rs. 1590 PKR</span><br> <span>12 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(03)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men9.webp" alt="men9">
-             <p> Kashmiri Warm Blue Shawl   <br><span class="price" style="color: #fe8e00;">  Rs. 890 PKR</span><br> <span>70 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Kashmiri Warm Blue Shawl </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 890 PKR</span><br> <span>70 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(20)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men10.webp" alt="men10">
-             <p> Navy Blue Puffer Jacket   <br><span class="price" style="color: #fe8e00;">  Rs. 1340 PKR</span><br> <span>67 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(29)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Navy Blue Puffer Jacket  </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1340 PKR</span><br> <span>67 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(29)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
         
  
@@ -527,30 +545,30 @@
 
          <div class="row rowdiv">
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men11.webp" alt="men11">
-             <p> Traditional Men's Kurta <br><span class="price" style="color: #fe8e00;">  Rs. 1399 PKR</span><br> <span>75 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Traditional Men's Kurta</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1399 PKR</span><br> <span>75 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men12.webp" alt="men12">
-             <p> Stylish Black Sunglasses  <br><span class="price" style="color: #fe8e00;">  Rs. 650 PKR</span><br> <span>48 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(25)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Stylish Black Sunglasses </span> <br><span class="price" style="color: #fe8e00;">  Rs. 650 PKR</span><br> <span>48 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(25)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men13.webp" alt="men13">
-             <p> Luxury Perfume For Men  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Luxury Perfume For Men </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men14.webp" alt="men14">
-             <p> Trendy White Cotton T-Shirt   <br><span class="price" style="color: #fe8e00;">  Rs. 730 PKR</span><br> <span>22 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(05)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Trendy White Cotton T-Shirt </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 730 PKR</span><br> <span>22 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(05)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men15.webp" alt="men15">
-             <p>  Comfortable Black Slippers  <br><span class="price" style="color: #fe8e00;">  Rs. 525 PKR</span><br> <span>52 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Comfortable Black Slippers </span> <br><span class="price" style="color: #fe8e00;">  Rs. 525 PKR</span><br> <span>52 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(22)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
         
 
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men16.webp" alt="men16">
-             <p> Luxury  Gold Wrist Watch   <br><span class="price" style="color: #fe8e00;">  Rs. 899 PKR</span><br> <span>55 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(21)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Luxury  Gold Wrist Watch </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 899 PKR</span><br> <span>55 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(21)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men17.webp" alt="men17">
-             <p>  New Hoodie & Jogger Pants <br><span class="price" style="color: #fe8e00;">  Rs. 1650 PKR</span><br> <span>40 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(17)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> New Hoodie & Jogger Pants </span><br><span class="price" style="color: #fe8e00;">  Rs. 1650 PKR</span><br> <span>40 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(17)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men18.webp" alt="men18">
-             <p> Classic Long Leather Wallet  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Classic Long Leather Wallet</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men19.webp" alt=",men19">
-             <p>  New Shiny Silver Cufflinks <br><span class="price" style="color: #fe8e00;">  Rs. 350 PKR</span><br> <span>32 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> New Shiny Silver Cufflinks</span> <br><span class="price" style="color: #fe8e00;">  Rs. 350 PKR</span><br> <span>32 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(10)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men20.webp" alt="men20">
-             <p>  Traditional Blue Waist Coat  <br><span class="price" style="color: #fe8e00;">  Rs. 1349 PKR</span><br> <span>28 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(04)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Traditional Blue Waist Coat </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1349 PKR</span><br> <span>28 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(04)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
         
          
@@ -559,87 +577,87 @@
          
          <div class="row rowdiv">
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men21.webp" alt="men21">
-             <p> Fashionable Black Sunglasses  <br><span class="price" style="color: #fe8e00;">  Rs. 730 PKR</span><br> <span>78 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Fashionable Black Sunglasses </span> <br><span class="price" style="color: #fe8e00;">  Rs. 730 PKR</span><br> <span>78 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men22.webp" alt="men22">
-             <p> New Stylish Sports Cap  <br><span class="price" style="color: #fe8e00;">  Rs. 250 PKR</span><br> <span>67 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> New Stylish Sports Cap</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 250 PKR</span><br> <span>67 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(13)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men23.webp" alt="men23">
-             <p> Kashmiri Shawl For Men <br><span class="price" style="color: #fe8e00;">  Rs. 899 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(42)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Kashmiri Shawl For Men </span><br><span class="price" style="color: #fe8e00;">  Rs. 899 PKR</span><br> <span>89 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(42)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men24.webp" alt="men24">
-             <p> New Classic Leather Wallet  <br><span class="price" style="color: #fe8e00;">  Rs. 1150 PKR</span><br> <span>32 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(06)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">New Classic Leather Wallet </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1150 PKR</span><br> <span>32 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(06)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men25.webp" alt="men25">
-             <p>Comfortable  Black Shoes <br><span class="price" style="color: #fe8e00;">  Rs. 1799 PKR</span><br> <span>55 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name">Comfortable  Black Shoes</span> <br><span class="price" style="color: #fe8e00;">  Rs. 1799 PKR</span><br> <span>55 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
 
          
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men26.webp" alt="men26">
-             <p> New Unique Silver Watch   <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>78 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> New Unique Silver Watch </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1200 PKR</span><br> <span>78 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(34)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men27.webp" alt="men27">
-             <p> Elegant Red-Stone Ring  <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Elegant Red-Stone Ring </span> <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>90 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men28.webp" alt="men28">
-             <p> Stylish Bracelet For Mens  <br><span class="price" style="color: #fe8e00;">  Rs. 378 PKR</span><br> <span>52 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Stylish Bracelet For Mens </span> <br><span class="price" style="color: #fe8e00;">  Rs. 378 PKR</span><br> <span>52 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men29.webp" alt="men29">
-             <p> New Formal brown shirt <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>43 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">New Formal brown shirt</span> <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>43 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men30.webp" alt="men30">
-            <p> Peshawari Chappal For Gents  <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>77 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(29)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+            <p> <span class="name">Peshawari Chappal For Gents </span> <br><span class="price" style="color: #fe8e00;">  Rs. 2000 PKR</span><br> <span>77 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(29)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
 
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men31.webp" alt="men31">
-             <p> New Trendy Black Shades     <br><span class="price" style="color: #fe8e00;">  Rs. 695 PKR</span><br> <span>82 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">New Trendy Black Shades   </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 695 PKR</span><br> <span>82 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(23)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men32.webp" alt="men32">
-             <p> Lightweight Maroon Jacket  <br><span class="price" style="color: #fe8e00;">  Rs. 999 PKR</span><br> <span>37 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(05)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Lightweight Maroon Jacket </span> <br><span class="price" style="color: #fe8e00;">  Rs. 999 PKR</span><br> <span>37 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(05)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men33.webp" alt="men33">
-             <p> Comfortable Blue Trouser <br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>33 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Comfortable Blue Trouser </span><br><span class="price" style="color: #fe8e00;">  Rs. 800 PKR</span><br> <span>33 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(11)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men34.webp" alt="men34">
-             <p> Peshawari Chappal For Boys   <br><span class="price" style="color: #fe8e00;">  Rs. 2100 PKR</span><br> <span>44 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Peshawari Chappal For Boys </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 2100 PKR</span><br> <span>44 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(16)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men35.webp" alt="men35">
-             <p> Durable Leather Wallet  <br><span class="price" style="color: #fe8e00;">  Rs. 999 PKR</span><br> <span>12 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(03)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Durable Leather Wallet</span>  <br><span class="price" style="color: #fe8e00;">  Rs. 999 PKR</span><br> <span>12 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(03)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
  
 
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men36.webp" alt="men36">
-             <p> Stylish Braided Bracelet Set<br><span class="price" style="color: #fe8e00;">  Rs. 299 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Stylish Braided Bracelet Set</span><br><span class="price" style="color: #fe8e00;">  Rs. 299 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men37.webp" alt="men37">
-             <p> New Stylish  Summer Cap  <br><span class="price" style="color: #fe8e00;">  Rs. 270 PKR</span><br> <span>33 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> New Stylish  Summer Cap </span> <br><span class="price" style="color: #fe8e00;">  Rs. 270 PKR</span><br> <span>33 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men38.webp" alt="men38">
-             <p> Lightweight Hooded Puffer    <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>45 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(18)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Lightweight Hooded Puffer </span>   <br><span class="price" style="color: #fe8e00;">  Rs. 300 PKR</span><br> <span>45 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(18)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men39.webp" alt="men39">
-             <p>  Turkish Style Stone Ring <br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Turkish Style Stone Ring </span><br><span class="price" style="color: #fe8e00;">  Rs. 1800 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men40.webp" alt="men40">
-             <p> Luxurious  Men's Perfume   <br><span class="price" style="color: #fe8e00;">  Rs. 1589 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Luxurious  Men's Perfume </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1589 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
  
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men41.webp" alt="men41">
-             <p> Hand Bracelet For Boys  <br><span class="price" style="color: #fe8e00;">  Rs. 150 PKR</span><br> <span>14 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(04)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Hand Bracelet For Boys </span> <br><span class="price" style="color: #fe8e00;">  Rs. 150 PKR</span><br> <span>14 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(04)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men42.webp" alt="men42">
-             <p>  Trendy Hoodie & Trouser   <br><span class="price" style="color: #fe8e00;">  Rs. 1840 PKR</span><br> <span>55 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(14)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Trendy Hoodie & Trouser </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 1840 PKR</span><br> <span>55 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(14)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men43.webp" alt="men43">
-             <p> Trendy Sneakers For Boys  <br><span class="price" style="color: #fe8e00;">  Rs. 1684 PKR</span><br> <span>34 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Trendy Sneakers For Boys </span> <br><span class="price" style="color: #fe8e00;">  Rs. 1684 PKR</span><br> <span>34 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men44.webp" alt="men44">
-             <p> Men's Kashmiri Wool Shawl   <br><span class="price" style="color: #fe8e00;">  Rs. 999 PKR</span><br> <span>56 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Men's Kashmiri Wool Shawl </span>  <br><span class="price" style="color: #fe8e00;">  Rs. 999 PKR</span><br> <span>56 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men45.webp" alt="men45">
-             <p> Fahionable Trendy Glasses  <br><span class="price" style="color: #fe8e00;">  Rs. 759 PKR</span><br> <span>73 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Fahionable Trendy Glasses </span> <br><span class="price" style="color: #fe8e00;">  Rs. 759 PKR</span><br> <span>73 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★</span> <span class="sold">(12)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
  
 
 
          <div class="row rowdiv" >
          <div class="col-lg-2 col-md-5 col-sm-5 coldiv" > <img class="img2" src="images/men46.webp" alt="men46">
-             <p>  Perfume For Mens<br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>44 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(06)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name"> Perfume For Mens</span><br><span class="price" style="color: #fe8e00;">  Rs. 1300 PKR</span><br> <span>44 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(06)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men47.webp" alt="men47">
-             <p> Comfortable Black Slippers  <br><span class="price" style="color: #fe8e00;">  Rs. 499 PKR</span><br> <span>23 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Comfortable Black Slippers </span> <br><span class="price" style="color: #fe8e00;">  Rs. 499 PKR</span><br> <span>23 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men48.webp" alt="men48">
-             <p> Classic Full-Sleeve Shirt  <br><span class="price" style="color: #fe8e00;">  Rs. 815 PKR</span><br> <span>52 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Classic Full-Sleeve Shirt </span> <br><span class="price" style="color: #fe8e00;">  Rs. 815 PKR</span><br> <span>52 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv " > <img class="img2" src="images/men49.webp" alt="men49">
-             <p> Premium Blue Stone Ring <br><span class="price" style="color: #fe8e00;">  Rs. 299 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p> <span class="name">Premium Blue Stone Ring</span> <br><span class="price" style="color: #fe8e00;">  Rs. 299 PKR</span><br> <span>62 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
              <div class="col-lg-2 col-md-4 col-sm-6 coldiv" > <img class="img2" src="images/men50.webp" alt="men50">
-             <p> Premium Fragrance For Boys <br><span class="price" style="color: #fe8e00;">  Rs. 980 PKR</span><br> <span>80 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
+             <p><span class="name"> Premium Fragrance For Boys</span> <br><span class="price" style="color: #fe8e00;">  Rs. 980 PKR</span><br> <span>80 sold </span><br><span class="star" style=" font-size: 20px; color: gold;">★★★</span> <span class="sold">(31)  </span></p><button class="buy-btn" onclick="addToCartMessage(this)">Buy Now</button> </div>
          </div>
  
      </div>
@@ -649,59 +667,6 @@
 
 
 
-     <script>
-    function addToCartMessage(button) {
-        // Clone the product div (.coldiv) before modifying it
-        var productDiv = button.closest('.coldiv');
-        var productCopy = productDiv.cloneNode(true); // Clone the entire product div
-
-        if (productCopy) {
-            // Remove the "Buy Now" button only in the copied version
-            var buyNowButton = productCopy.querySelector('.buy-now-btn');
-            if (buyNowButton) {
-                buyNowButton.remove();
-            }
-
-            // Get the modified product HTML (without removing anything from women.php)
-            var productHTML = productCopy.outerHTML;
-
-            // Send the cleaned-up product data to cart.php via AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "cart.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    console.log("Added to cart.php");
-                }
-            };
-
-            xhr.send("product=" + encodeURIComponent(productHTML));
-
-            // Show success message
-            var messageDiv = document.createElement("div");
-            messageDiv.innerHTML = "Added to Cart Successfully!";
-            messageDiv.style.position = "fixed";
-            messageDiv.style.top = "50%";
-            messageDiv.style.left = "50%";
-            messageDiv.style.transform = "translate(-50%, -50%)";
-            messageDiv.style.backgroundColor = "#4CAF50";
-            messageDiv.style.color = "white";
-            messageDiv.style.fontSize = "24px";
-            messageDiv.style.padding = "20px 40px";
-            messageDiv.style.borderRadius = "8px";
-            messageDiv.style.zIndex = "9999";
-            messageDiv.style.textAlign = "center";
-            messageDiv.style.boxShadow = "0px 4px 10px rgba(0,0,0,0.2)";
-            document.body.appendChild(messageDiv);
-
-            // Remove message after 2 seconds
-            setTimeout(function () {
-                document.body.removeChild(messageDiv);
-            }, 2000);
-        }
-    }
-</script>
     <br><br>
 
 <!-- Footer work -->

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Store</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      max-width: 1250px;
+      background: white;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      flex-grow: 1;
+      margin-bottom: 100px;
+    }
+    .header {
+      background: #ff6600;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .coldiv {
+      width: 220px;
+      height: 350px;
+      margin: 10px;
+      padding: 10px;
+      background-color: white;
+      position: relative;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 5px;
+    }
+    .img2 {
+      height: 180px;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+    .remove-btn, .buy-now-btn {
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .remove-btn {
+      background: #dc3545;
+      bottom: 10px;
+    }
+    .buy-now-btn {
+      background: #28a745;
+      bottom: 50px;
+    }
+    .footer {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .footer a {
+      text-decoration: none;
+      background: #ff6600;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">My Store Products</div>
+
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5" id="storeProducts"></div>
+</div>
+
+<footer class="footer">
+  <a href="index.html">Go to Home</a>
+  <a href="suggested.html">Add more products</a>
+  <a href="index.html" onclick="logout(); return false;">Logout</a>
+</footer>
+
+<script>
+  function loadStoreProducts() {
+    const storedProducts = JSON.parse(localStorage.getItem("storeProducts")) || [];
+    const productList = document.getElementById("storeProducts");
+
+    productList.innerHTML = storedProducts.length === 0 ?
+      "<p class='text-muted'>No products added to your store yet.</p>" : "";
+
+    storedProducts.forEach((product, index) => {
+      const stars = "★".repeat(product.rating) + "☆".repeat(5 - product.rating);
+      const productItem = `
+        <div class='col coldiv'>
+          <img class='img2' src="${product.image}" alt="${product.name}">
+          <p>${product.name} <br>
+            <span class='price' style='color: #fe8e00;'> Rs. ${product.price} PKR</span><br>
+            <span>${product.sold} sold</span><br>
+            <span class='star' style='font-size: 20px; color: gold;'>${stars}</span>
+          </p>
+          <button class="buy-now-btn" onclick="addToCart('${product.name}', '${product.price}', '${product.image}', '${product.sold}', '${product.rating}')">Buy Now</button>
+          <button class="remove-btn" onclick="removeFromStore(${index})">Remove</button>
+        </div>
+      `;
+      productList.innerHTML += productItem;
+    });
+  }
+
+  function removeFromStore(index) {
+    const storedProducts = JSON.parse(localStorage.getItem("storeProducts")) || [];
+    storedProducts.splice(index, 1);
+    localStorage.setItem("storeProducts", JSON.stringify(storedProducts));
+    loadStoreProducts();
+  }
+
+  function addToCart(name, price, image, sold, rating) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const index = cart.findIndex(item => item.name === name);
+
+    if (index !== -1) {
+      cart[index].quantity += 1;
+    } else {
+      cart.push({ name, price: parseFloat(price), image, sold, rating, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showMessage("Product added to cart!");
+  }
+
+  function showMessage(message) {
+    const msg = document.createElement("div");
+    msg.innerHTML = message;
+    msg.style.position = "fixed";
+    msg.style.top = "50%";
+    msg.style.left = "50%";
+    msg.style.transform = "translate(-50%, -50%)";
+    msg.style.backgroundColor = "#4CAF50";
+    msg.style.color = "white";
+    msg.style.fontSize = "20px";
+    msg.style.padding = "15px";
+    msg.style.borderRadius = "8px";
+    msg.style.zIndex = "9999";
+    msg.style.textAlign = "center";
+    document.body.appendChild(msg);
+
+    setTimeout(() => document.body.removeChild(msg), 2000);
+  }
+
+  function logout() {
+    localStorage.clear();
+    localStorage.setItem("fromLogout", "true");
+    window.location.href = "index.html";
+  }
+
+  window.onload = loadStoreProducts;
+</script>
+
+</body>
+</html>
